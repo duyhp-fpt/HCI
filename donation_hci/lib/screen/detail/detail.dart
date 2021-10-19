@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/list_activity/list_activity.dart';
 import 'package:house_rent/model/charity.dart';
-import 'package:house_rent/model/donate.dart';
 import 'package:house_rent/screen/detail/widget/about.dart';
 import 'package:house_rent/screen/detail/widget/content_intro.dart';
 import 'package:house_rent/screen/detail/widget/detail_app_bar.dart';
-import 'package:house_rent/screen/detail/widget/charity_info.dart';
 import 'package:house_rent/screen/listdonate/list_donate.dart';
 
 class DetailPage extends StatelessWidget {
@@ -20,6 +19,10 @@ class DetailPage extends StatelessWidget {
         DetailAppBar(charity: charity),
         SizedBox(height: 20),
         ContentIntro(charity: charity),
+        SizedBox(height: 20),
+        About(
+          charity: charity,
+        ),
         SizedBox(height: 20),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 40),
@@ -39,12 +42,11 @@ class DetailPage extends StatelessWidget {
             ),
             child: Container(
               alignment: Alignment.center,
-              color: Colors.white,
               padding: EdgeInsets.symmetric(vertical: 10),
               child: Text(
                 'View list donator',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
@@ -54,7 +56,14 @@ class DetailPage extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 40),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ListActivity(),
+                ),
+              );
+            },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
@@ -75,9 +84,6 @@ class DetailPage extends StatelessWidget {
         ),
         // CharityInfo(),
         // SizedBox(height: 20),
-        About(
-          charity: charity,
-        ),
         SizedBox(height: 25),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20),
