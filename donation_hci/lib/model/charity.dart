@@ -18,7 +18,7 @@ class Charity {
         'Việt Nam',
         'assets/images/charity_2.png',
         'Quỹ ủng hộ trẻ em',
-        '20000000 ',
+        '200,000,000 ',
         'VND',
         'Chương trình “Mặt trời cho em” hướng tới thông điệp: "Làm từ thiện không phải chỉ đơn giản là cho đi, đây là hành động mang lại hy vọng sống, năng lượng tươi sáng hơn cho trẻ em".',
       ),

@@ -15,36 +15,38 @@ class ContentIntro extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(charity.name,
-              style: Theme.of(context)
-                  .textTheme
-                  .headline1!
-                  .copyWith(fontSize: 20, fontWeight: FontWeight.bold)),
+          Text(
+            'Charity Name: ' + charity.name,
+            style: Theme.of(context).textTheme.headline1!.copyWith(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[300]),
+          ),
           SizedBox(
             height: 10,
           ),
           Text(
-            charity.address,
+            'Address: ' + charity.address,
             style:
-                Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
+                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
           ),
           SizedBox(height: 10),
           Text(
-            charity.nameOrganization,
+            'Organization: ' + charity.nameOrganization,
             style:
-                Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
+                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
           ),
           SizedBox(height: 10),
           RichText(
             text: TextSpan(children: [
               TextSpan(
-                  text: charity.totalPrice,
+                  text: 'Total Price of donate: ',
                   style: Theme.of(context)
                       .textTheme
                       .headline1!
                       .copyWith(fontSize: 16, fontWeight: FontWeight.bold)),
               TextSpan(
-                text: charity.uom,
+                text: charity.totalPrice + charity.uom,
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1!
