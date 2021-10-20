@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:house_rent/list_activity/detail_activity.dart';
 import 'package:house_rent/model/activity.dart';
 
 final List<Activity> listActivity = Activity.generateListPayment();
@@ -20,32 +22,51 @@ class ListActivity extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           itemCount: listActivity.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 80,
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(listActivity.elementAt(index).id.toString()),
+            return Row(
+              children: [
+                Container(
+                  height: 125,
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                            listActivity.elementAt(index).id.toString() +
+                                '          '),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Column(children: [
+                          Text('Product Name: ' +
+                              listActivity.elementAt(index).product),
+                          Text('Quantity: ' +
+                              listActivity.elementAt(index).quantity),
+                          Text('Price: ' +
+                              listActivity.elementAt(index).price +
+                              listActivity.elementAt(index).uom),
+                          Text('Date: ' + listActivity.elementAt(index).date),
+                        ]),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailActivity(
+                                      detailActivity: listActivity[index]);
+                                },
+                              ),
+                            );
+                          },
+                          icon: SvgPicture.asset('assets/icons/search.svg')),
+                    ],
                   ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Column(children: [
-                      Text('Product Name: ' +
-                          listActivity.elementAt(index).product),
-                      Text('Quantity: ' +
-                          listActivity.elementAt(index).quantity),
-                      Text('Price: ' +
-                          listActivity.elementAt(index).price +
-                          listActivity.elementAt(index).uom),
-                      Text('Date: ' + listActivity.elementAt(index).date),
-                    ]),
-                  ),
-                ],
-              ),
+                ),
+                // Image.asset(listActivity.elementAt(index).image),
+              ],
             );
           },
           separatorBuilder: (BuildContext context, int index) =>

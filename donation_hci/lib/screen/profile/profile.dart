@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:house_rent/model/profile.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
