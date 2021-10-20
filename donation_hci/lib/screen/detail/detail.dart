@@ -38,7 +38,7 @@ class DetailPage extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
-              primary: Theme.of(context).primaryColor,
+              primary: Theme.of(context).canvasColor,
             ),
             child: Container(
               alignment: Alignment.center,
@@ -46,7 +46,7 @@ class DetailPage extends StatelessWidget {
               child: Text(
                 'View list donator',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.blue[300],
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),
@@ -67,7 +67,7 @@ class DetailPage extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
-              primary: Theme.of(context).primaryColor,
+              primary: Theme.of(context).canvasColor,
             ),
             child: Container(
               alignment: Alignment.center,
@@ -75,7 +75,7 @@ class DetailPage extends StatelessWidget {
               child: Text(
                 'View list activity',
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.blue[300],
                     fontSize: 16,
                     fontWeight: FontWeight.bold),
               ),

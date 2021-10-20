@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
-class Profile extends StatelessWidget {
+import 'package:flutter_svg/svg.dart';
+import 'package:house_rent/model/profile.dart';
 
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Material(
-      
+    return Scaffold(
+      backgroundColor: Colors.blue[100],
+      appBar: new AppBar(
+        title: new Text('Profile'),
+        backgroundColor: Colors.blue[200],
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        child: CircleAvatar(
+          maxRadius: 75,
+          backgroundImage: AssetImage('assets/images/avatar.jpg'),
+        ),
+      ),
     );
-
   }
 }

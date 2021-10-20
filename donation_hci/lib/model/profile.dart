@@ -12,7 +12,7 @@ class Profile {
   static List<Profile> generateProfile() {
     return [
       Profile(1, 'Huynh Duy', '123456', 'HCM city', '3123123232',
-          'assets/icons/menu.svg'),
+          'assets/images/avatar.jpg'),
     ];
   }
 }
