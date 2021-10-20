@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/charity.dart';
+import 'package:house_rent/screen/detail/detail.dart';
 import 'package:house_rent/widget/circle_icon_button.dart';
 
 class History extends StatelessWidget {
@@ -41,14 +42,25 @@ class History extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Container(
-                              width: 150,
-                              height: 80,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage(el.imageUrl),
-                                      fit: BoxFit.cover),
-                                  borderRadius: BorderRadius.circular(8)),
+                            new GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return DetailPage(charity: el);
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: 150,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(el.imageUrl),
+                                        fit: BoxFit.cover),
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
                             ),
                             SizedBox(width: 10),
                             Column(

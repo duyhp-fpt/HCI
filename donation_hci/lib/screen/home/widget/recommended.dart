@@ -15,10 +15,13 @@ class RecommendedCharity extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return DetailPage(charity: recommendedList[index]);
-                  }));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return DetailPage(charity: recommendedList[index]);
+                      },
+                    ),
+                  );
                 },
                 child: Container(
                   width: 230,
