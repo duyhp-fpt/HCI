@@ -12,19 +12,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return Profile();
-                  }));
-                },
+                onPressed: () {},
                 icon: SvgPicture.asset('assets/icons/menu.svg')),
             Text(
               "Charity Donation",
               style: TextStyle(color: Colors.white, fontSize: 28),
             ),
-            CircleAvatar(
-                backgroundImage: AssetImage('assets/images/avatar.jpg'))
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Profile();
+                    },
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/avatar.jpg'),
+              ),
+            ),
           ],
         ),
       ),
