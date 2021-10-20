@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/charity.dart';
-import 'package:house_rent/model/donate.dart';
 import 'package:house_rent/screen/detail/detail.dart';
 import 'package:house_rent/widget/circle_icon_button.dart';
 

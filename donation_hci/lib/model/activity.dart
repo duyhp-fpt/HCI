@@ -11,18 +11,18 @@ class Activity {
 
   static List<Activity> generateListPayment() {
     return [
-      Activity(1, 'Sữa', '100 thùng', '31500000', 'VND', '13-10-2021',
-          'assets/images/house02.jpeg'),
-      Activity(2, 'Mì gói', '100 thùng', '21000000', 'VND', '13-10-2021',
-          'assets/images/house02.jpeg'),
-      Activity(3, 'Khẩu trang', '3 hộp', '150,000 ', 'VND', '27-01-2021',
+      Activity(1, 'Thực Phẩm', '100', '31,500,000', 'VND', '13-10-2021',
+          'assets/images/image_4.jpg'),
+      Activity(2, 'Nhu yếu phẩm', '100', '21,000,000', 'VND', '13-10-2021',
+          'assets/images/image_5.jpg'),
+      Activity(3, 'Khẩu trang', '3', '150,000 ', 'VND', '27-01-2021',
           'assets/images/khautrang.jpg'),
-      Activity(4, 'Sữa', '100 thùng', '31500000', 'VND', '13-10-2021',
-          'assets/images/house02.jpeg'),
-      Activity(5, 'Sữa', '100 thùng', '31500000', 'VND', '13-10-2021',
-          'assets/images/house02.jpeg'),
-      Activity(6, 'Sữa', '100 thùng', '31500000', 'VND', '13-10-2021',
-          'assets/images/house02.jpeg'),
+      Activity(4, 'Thực phẩm', '100', '31,500,000', 'VND', '13-10-2021',
+          'assets/images/image_4.jpg'),
+      Activity(5, 'Nhu yếu phẩm', '100', '31500000', 'VND', '13-10-2021',
+          'assets/images/image_5.jpg'),
+      Activity(6, 'Khẩu trang', '3', '150,000 ', 'VND', '27-01-2021',
+          'assets/images/khautrang.jpg'),
     ];
   }
 }

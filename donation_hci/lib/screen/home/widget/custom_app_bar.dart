@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:house_rent/screen/profile/profile.dart';
+import 'package:house_rent/screen/profile/profile_view.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override

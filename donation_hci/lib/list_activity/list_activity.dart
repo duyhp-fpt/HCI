@@ -25,7 +25,7 @@ class ListActivity extends StatelessWidget {
             return Row(
               children: [
                 Container(
-                  height: 125,
+                  height: 100,
                   color: Colors.white,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -51,17 +51,19 @@ class ListActivity extends StatelessWidget {
                         ]),
                       ),
                       IconButton(
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return DetailActivity(
-                                      detailActivity: listActivity[index]);
-                                },
-                              ),
-                            );
-                          },
-                          icon: SvgPicture.asset('assets/icons/search.svg')),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return DetailActivity(
+                                    detailActivity: listActivity[index]);
+                              },
+                            ),
+                          );
+                        },
+                        icon: SvgPicture.asset('assets/icons/search.svg'),
+                        alignment: Alignment.center,
+                      ),
                     ],
                   ),
                 ),
