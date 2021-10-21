@@ -46,7 +46,7 @@ class Charity {
     return [
       Charity(
           'Mặt trời cho em',
-          'Atlanta, United State',
+          'Việt Nam',
           'assets/images/charity_2.png',
           'Hội đồng hương',
           '20000000',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/login/login.dart';
 import 'package:house_rent/screen/home/home.dart';
 
 void main() {
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
               ),
               bodyText1: TextStyle(color: Color(0xFF100E34).withOpacity(0.5)),
             )),
-        home: HomePage());
+        home: LoginPage());
   }
 }
