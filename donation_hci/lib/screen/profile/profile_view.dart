@@ -47,7 +47,7 @@ class ProfilePage extends StatelessWidget {
             'Address: Vĩnh Long\nDate of birth: 17-01-2000\nGender: Male\nPhone number: 0908-690-095\nDonated: 2,500,000 VND',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 25,
+              fontSize: 22,
             ),
           ),
           SizedBox(height: 20),
@@ -60,7 +60,11 @@ class ProfilePage extends StatelessWidget {
                 fontSize: 25,
               ),
             ),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          
         ],
       ),
     );
