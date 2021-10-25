@@ -1,17 +1,17 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:house_rent/model/charity.dart';
 
-class CreateCPPage extends StatefulWidget {
-  createState() => CreateCPPageState();
-}
+class EditCampaign extends StatelessWidget {
+  final Charity charity;
 
-class CreateCPPageState extends State<CreateCPPage> {
+  EditCampaign({Key? key, required this.charity}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Campaign'),
+        title: new Text('Update Campaign'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(
@@ -22,6 +22,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 20, 5, 40),
                   child: TextField(
+                    controller: TextEditingController()..text = charity.name,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -37,6 +38,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
+                    controller: TextEditingController()..text = charity.address,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -52,6 +54,8 @@ class CreateCPPageState extends State<CreateCPPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
+                    controller: TextEditingController()
+                      ..text = charity.nameOrganization,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -67,6 +71,8 @@ class CreateCPPageState extends State<CreateCPPage> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
+                    controller: TextEditingController()
+                      ..text = charity.description,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -100,7 +106,6 @@ class CreateCPPageState extends State<CreateCPPage> {
                         onPressed: () async {
                           FilePickerResult? selectedDirectory =
                               await FilePicker.platform.pickFiles();
-
                           if (selectedDirectory == null) {
                             // User canceled the picker
                           } else {
@@ -149,7 +154,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Create campaign successful',
+                        'Updated campaign successful',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
@@ -158,7 +163,7 @@ class CreateCPPageState extends State<CreateCPPage> {
               },
               color: Colors.blue[100],
               child: Text(
-                'Create',
+                'Update',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),

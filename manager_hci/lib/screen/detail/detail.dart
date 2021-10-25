@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/list_activity/list_activity.dart';
 import 'package:house_rent/model/charity.dart';
+import 'package:house_rent/screen/campaign/editcampaign.dart';
 import 'package:house_rent/screen/detail/widget/about.dart';
 import 'package:house_rent/screen/detail/widget/content_intro.dart';
 import 'package:house_rent/screen/detail/widget/detail_app_bar.dart';
@@ -89,7 +90,7 @@ class DetailPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ListDonate(),
+                      builder: (context) => EditCampaign(charity: charity),
                     ),
                   );
                 },
@@ -102,7 +103,7 @@ class DetailPage extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    'Edit Campaign',
+                    'Update Campaign',
                     style: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 16,
