@@ -1,11 +1,16 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CreateCPPage extends StatefulWidget {
   createState() => CreateCPPageState();
 }
 
 class CreateCPPageState extends State<CreateCPPage> {
+  File? image;
+  final picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +96,16 @@ class CreateCPPageState extends State<CreateCPPage> {
                         fontSize: 20,
                       ),
                     ),
+                    image != null
+                        ? Image.file(
+                            image!,
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          )
+                        : FlutterLogo(
+                            size: 0,
+                          ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
                       child: RaisedButton(
@@ -98,29 +113,47 @@ class CreateCPPageState extends State<CreateCPPage> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadiusDirectional.circular(7)),
                         onPressed: () async {
-                          FilePickerResult? selectedDirectory =
-                              await FilePicker.platform.pickFiles();
-
-                          if (selectedDirectory == null) {
-                            // User canceled the picker
-                          } else {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  backgroundColor: Colors.green[100],
-                                  title: new Text(
-                                    'Choose image successful',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
-                                  ),
-                                );
-                              },
-                            );
-                          }
+                          final pickedFile = await picker.pickImage(
+                              source: ImageSource.gallery);
+                          //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                          setState(() {
+                            if (pickedFile != null) {
+                              image = File(pickedFile.path);
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    backgroundColor: Colors.green[100],
+                                    title: new Text(
+                                      'Choose image successful',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15),
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    backgroundColor: Colors.green[100],
+                                    title: new Text(
+                                      'Choose image fail',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15),
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+                          });
                         },
                         child: Text(
                           'Get image',
