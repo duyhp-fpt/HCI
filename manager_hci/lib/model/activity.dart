@@ -68,7 +68,7 @@ class ActivityManagePeople {
         'Cao Bằng',
         '5,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Nguyễn Công Phượng',
@@ -89,7 +89,7 @@ class ActivityManagePeople {
         'Bắc Giang',
         '10,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Võ Tấn Đạt',
@@ -110,7 +110,7 @@ class ActivityManagePeople {
         'Cao Bằng',
         '10,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Nguyễn Công Vinh',
@@ -145,7 +145,7 @@ class ActivityManagePeople {
         'Hải Phòng',
         '8,000,000',
         'VND',
-        true,
+        false,
       ),
     ];
   }
