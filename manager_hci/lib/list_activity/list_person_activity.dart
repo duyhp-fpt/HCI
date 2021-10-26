@@ -20,33 +20,63 @@ class ListPersonActivity extends StatelessWidget {
           padding: const EdgeInsets.all(8),
           itemCount: listActivity.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: 50,
-              color: Colors.white,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(
-                        (index + 1).toString() + "  -  ",
+            if (listActivity.elementAt(index).status) {
+              return Container(
+                height: 50,
+                color: Colors.green[200],
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          (index + 1).toString() + "  -  ",
+                        ),
                       ),
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Column(children: [
-                        Text('Name: ' + listActivity.elementAt(index).name),
-                        Text('Price: ' +
-                            listActivity.elementAt(index).quantity +
-                            listActivity.elementAt(index).uom),
-                        Text('Address: ' +
-                            listActivity.elementAt(index).address),
-                      ]),
-                    ),
-                    // Image.asset(listActivity.elementAt(index).image),
-                  ]),
-            );
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Column(children: [
+                          Text('Name: ' + listActivity.elementAt(index).name),
+                          Text('Price: ' +
+                              listActivity.elementAt(index).quantity +
+                              listActivity.elementAt(index).uom),
+                          Text('Address: ' +
+                              listActivity.elementAt(index).address),
+                        ]),
+                      ),
+                      // Image.asset(listActivity.elementAt(index).image),
+                    ]),
+              );
+            } else {
+              return Container(
+                height: 50,
+                color: Colors.white,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          (index + 1).toString() + "  -  ",
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Column(children: [
+                          Text('Name: ' + listActivity.elementAt(index).name),
+                          Text('Price: ' +
+                              listActivity.elementAt(index).quantity +
+                              listActivity.elementAt(index).uom),
+                          Text('Address: ' +
+                              listActivity.elementAt(index).address),
+                        ]),
+                      ),
+                      // Image.asset(listActivity.elementAt(index).image),
+                    ]),
+              );
+            }
           },
           separatorBuilder: (BuildContext context, int index) =>
               const Divider(),

@@ -1,12 +1,13 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class CreateCPPage extends StatefulWidget {
+class CreateProPage extends StatefulWidget {
   createState() => CreateCPPageState();
 }
 
-class CreateCPPageState extends State<CreateCPPage> {
+class CreateCPPageState extends State<CreateProPage> {
   File? image;
   final picker = ImagePicker();
   @override
@@ -180,7 +181,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Create campaign successful',
+                        'Create product activity successful',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
