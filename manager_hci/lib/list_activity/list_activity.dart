@@ -104,7 +104,7 @@ class ListProductActivity extends StatelessWidget {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create campaign',
+                'Create product activity',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CreateProPage extends StatefulWidget {
-  createState() => CreateProPageState();
+class CreatePerPage extends StatefulWidget {
+  createState() => CreatePerPageState();
 }
 
-class CreateProPageState extends State<CreateProPage> {
+class CreatePerPageState extends State<CreatePerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class CreateProPageState extends State<CreateProPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Product Name: ',
+                      labelText: 'Name: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -40,7 +40,22 @@ class CreateProPageState extends State<CreateProPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Quantity: ',
+                      labelText: 'Price: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Address: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -67,7 +82,7 @@ class CreateProPageState extends State<CreateProPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Create product activity successful',
+                        'Create activity for person successful',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/list_activity/createperson.dart';
 import 'package:house_rent/model/activity.dart';
 
 final List<ActivityManagePeople> listActivity =
@@ -82,7 +83,41 @@ class ListPersonActivity extends StatelessWidget {
               const Divider(),
         ),
       ),
+      bottomNavigationBar: SizedBox(
+        height: 50,
+        // width: 20,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return CreatePerPage();
+                  },
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              primary: Theme.of(context).primaryColor,
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 15),
+              child: Text(
+                'Create activity for person',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
-    // bottomNavigationBar: CustomBottomNavigationBar(),
   }
 }
