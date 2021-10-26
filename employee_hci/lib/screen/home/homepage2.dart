@@ -1,13 +1,13 @@
 import 'package:employee_hci/model/activity.dart';
 import 'package:employee_hci/screen/activity/createactivity.dart';
 import 'package:employee_hci/screen/home/custom_app_bar.dart';
-import 'package:employee_hci/screen/home/homepage2.dart';
+import 'package:employee_hci/screen/home/home.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage_2 extends StatelessWidget {
   int i = 0;
-  final List<ActivityManageProduct> listActivity =
-      ActivityManageProduct.generateListActivity();
+  final List<ActivityManagePeople> listActivity =
+      ActivityManagePeople.generateListWithPeople();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,10 +81,13 @@ class HomePage extends StatelessWidget {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Column(children: [
-                          Text('Product Name: ' +
-                              listActivity.elementAt(index).product),
-                          Text('Quantity: ' +
-                              listActivity.elementAt(index).quantity),
+                          Text('Name: ' + listActivity.elementAt(index).name),
+                          Text(
+                            'Address: ' + listActivity.elementAt(index).address,
+                          ),
+                          Text('Price: ' +
+                              listActivity.elementAt(index).quantity +
+                              listActivity.elementAt(index).uom),
                         ]),
                       ),
                       // Image.asset(listActivity.elementAt(index).image),

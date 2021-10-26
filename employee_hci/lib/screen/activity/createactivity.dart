@@ -24,7 +24,7 @@ class CreatePageState extends State<CreatePage> {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
@@ -39,7 +39,7 @@ class CreatePageState extends State<CreatePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
@@ -54,7 +54,7 @@ class CreatePageState extends State<CreatePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
@@ -69,7 +69,7 @@ class CreatePageState extends State<CreatePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
@@ -84,7 +84,7 @@ class CreatePageState extends State<CreatePage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
@@ -98,13 +98,28 @@ class CreatePageState extends State<CreatePage> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Price: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(1, 5, 5, 15),
+                padding: EdgeInsets.fromLTRB(1, 5, 5, 10),
               ),
               Text(
                 'Image: ',
