@@ -1,7 +1,6 @@
 import 'package:employee_hci/screen/login/login.dart';
 import 'package:flutter/material.dart';
 
-
 class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -90,7 +89,7 @@ class ForgotPassword extends StatelessWidget {
                     );
                   },
                   color: Colors.blue[200],
-                  child: Text('Send request to admin',
+                  child: Text('Send request to manager',
                       style: TextStyle(
                         color: Colors.white,
                       )),
