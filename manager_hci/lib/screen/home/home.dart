@@ -42,7 +42,8 @@ class HomePage extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)),
+                borderRadius: BorderRadius.circular(8),
+              ),
               primary: Theme.of(context).primaryColor,
             ),
             child: Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/list_activity/list_activity.dart';
+import 'package:house_rent/list_activity/list_person_activity.dart';
 import 'package:house_rent/model/charity.dart';
 import 'package:house_rent/screen/campaign/editcampaign.dart';
 import 'package:house_rent/screen/detail/widget/about.dart';
@@ -43,7 +44,6 @@ class DetailPage extends StatelessWidget {
                 ),
                 child: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
                     'View list employee',
                     style: TextStyle(
@@ -54,34 +54,66 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ListActivity(),
+            Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ListProductActivity(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      primary: Theme.of(context).canvasColor,
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  primary: Theme.of(context).canvasColor,
-                ),
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  child: Text(
-                    'View list activity',
-                    style: TextStyle(
-                        color: Colors.blue[300],
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        'View list\nproduct activity',
+                        style: TextStyle(
+                            color: Colors.blue[300],
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ListPersonActivity(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      primary: Theme.of(context).canvasColor,
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Text(
+                        'View list activity\nfor person',
+                        style: TextStyle(
+                            color: Colors.blue[300],
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 40),

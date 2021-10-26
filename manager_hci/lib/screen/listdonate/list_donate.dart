@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:house_rent/list_activity/list_activity.dart';
 import 'package:house_rent/model/donate.dart';
 import 'package:house_rent/screen/listdonate/createemp.dart';
 
@@ -10,7 +9,6 @@ class ListDonate extends StatelessWidget {
   // const ListDonate({Key? key, required this.donate}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var buttonText = '';
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -44,8 +42,8 @@ class ListDonate extends StatelessWidget {
                               listDonate.elementAt(index).userName),
                           Text('Password: ' +
                               listDonate.elementAt(index).password),
-                          // Text('Status: ' +
-                          //     (listDonate.elementAt(index).status).toString()),
+                          Text('Phone Number: ' +
+                              listDonate.elementAt(index).phoneNumber),
                         ]),
                       ),
                     ],

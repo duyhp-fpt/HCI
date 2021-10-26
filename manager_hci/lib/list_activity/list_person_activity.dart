@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/activity.dart';
-// import 'package:house_rent/list_activity/detail_activity.dart';
-// import 'package:house_rent/model/activity.dart';
 
-final List<ActivityManageProduct> listActivity =
-    ActivityManageProduct.generateListActivity();
+final List<ActivityManagePeople> listActivity =
+    ActivityManagePeople.generateListWithPeople();
 
-class ListProductActivity extends StatelessWidget {
+class ListPersonActivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,16 +30,18 @@ class ListProductActivity extends StatelessWidget {
                     Align(
                       alignment: Alignment.topCenter,
                       child: Text(
-                        (index + 1).toString() + "    ",
+                        (index + 1).toString() + "  -  ",
                       ),
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Column(children: [
-                        Text('Product Name: ' +
-                            listActivity.elementAt(index).product),
-                        Text('Quantity: ' +
-                            listActivity.elementAt(index).quantity),
+                        Text('Name: ' + listActivity.elementAt(index).name),
+                        Text('Price: ' +
+                            listActivity.elementAt(index).quantity +
+                            listActivity.elementAt(index).uom),
+                        Text('Address: ' +
+                            listActivity.elementAt(index).address),
                       ]),
                     ),
                     // Image.asset(listActivity.elementAt(index).image),

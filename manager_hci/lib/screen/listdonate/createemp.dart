@@ -59,6 +59,21 @@ class CreateEmpPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Phone Number: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

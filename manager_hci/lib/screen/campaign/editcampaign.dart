@@ -1,11 +1,18 @@
-import 'package:file_picker/file_picker.dart';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/charity.dart';
+import 'package:image_picker/image_picker.dart';
 
-class EditCampaign extends StatelessWidget {
+class EditCampaign extends StatefulWidget {
   final Charity charity;
-
   EditCampaign({Key? key, required this.charity}) : super(key: key);
+  @override
+  State<EditCampaign> createState() => _EditCampaignState();
+}
+
+class _EditCampaignState extends State<EditCampaign> {
+  File? image;
+  final picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +29,8 @@ class EditCampaign extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 20, 5, 40),
                   child: TextField(
-                    controller: TextEditingController()..text = charity.name,
+                    controller: TextEditingController()
+                      ..text = widget.charity.name,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -38,7 +46,8 @@ class EditCampaign extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
-                    controller: TextEditingController()..text = charity.address,
+                    controller: TextEditingController()
+                      ..text = widget.charity.address,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -55,7 +64,7 @@ class EditCampaign extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
                     controller: TextEditingController()
-                      ..text = charity.nameOrganization,
+                      ..text = widget.charity.nameOrganization,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -72,7 +81,7 @@ class EditCampaign extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
                   child: TextField(
                     controller: TextEditingController()
-                      ..text = charity.description,
+                      ..text = widget.charity.description,
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -97,6 +106,16 @@ class EditCampaign extends StatelessWidget {
                         fontSize: 20,
                       ),
                     ),
+                    image != null
+                        ? Image.file(
+                            image!,
+                            fit: BoxFit.cover,
+                            height: 100,
+                            width: 100,
+                          )
+                        : FlutterLogo(
+                            size: 0,
+                          ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
                       child: RaisedButton(
@@ -104,28 +123,47 @@ class EditCampaign extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadiusDirectional.circular(7)),
                         onPressed: () async {
-                          FilePickerResult? selectedDirectory =
-                              await FilePicker.platform.pickFiles();
-                          if (selectedDirectory == null) {
-                            // User canceled the picker
-                          } else {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  backgroundColor: Colors.green[100],
-                                  title: new Text(
-                                    'Choose image successful',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
-                                  ),
-                                );
-                              },
-                            );
-                          }
+                          final pickedFile = await picker.pickImage(
+                              source: ImageSource.gallery);
+                          //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                          setState(() {
+                            if (pickedFile != null) {
+                              image = File(pickedFile.path);
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    backgroundColor: Colors.green[100],
+                                    title: new Text(
+                                      'Choose image successful',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15),
+                                    ),
+                                  );
+                                },
+                              );
+                            } else {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(10))),
+                                    backgroundColor: Colors.green[100],
+                                    title: new Text(
+                                      'Choose image fail',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 15),
+                                    ),
+                                  );
+                                },
+                              );
+                            }
+                          });
                         },
                         child: Text(
                           'Get image',
