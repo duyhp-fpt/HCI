@@ -76,102 +76,121 @@ class _HomePage_2State extends State<HomePage_2> {
           itemBuilder: (BuildContext context, int index) {
             if (!listActivity.elementAt(index).status) {
               j++;
-              return Row(
+              return Column(
                 children: [
-                  Container(
-                    height: 50,
-                    color: Colors.white,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: Alignment.topCenter,
-                            child: Text(
-                              j.toString() + "    ",
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            child: Column(children: [
-                              Text('Name: ' +
-                                  listActivity.elementAt(index).name),
-                              Text(
-                                'Address: ' +
-                                    listActivity.elementAt(index).address,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 50,
+                        color: Colors.white,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Text(
+                                  j.toString() + "    ",
+                                ),
                               ),
-                              Text('Price: ' +
-                                  listActivity.elementAt(index).quantity +
-                                  listActivity.elementAt(index).uom),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Column(children: [
+                                  Text('Name: ' +
+                                      listActivity.elementAt(index).name),
+                                  Text(
+                                    'Address: ' +
+                                        listActivity.elementAt(index).address,
+                                  ),
+                                  Text('Price: ' +
+                                      listActivity.elementAt(index).quantity +
+                                      listActivity.elementAt(index).uom),
+                                ]),
+                              ),
+                              // Image.asset(listActivity.elementAt(index).image),
                             ]),
-                          ),
-                          // Image.asset(listActivity.elementAt(index).image),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(1, 5, 5, 10),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
-                    child: RaisedButton(
-                      color: Colors.blue[100],
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusDirectional.circular(7)),
-                      onPressed: () async {
-                        final pickedFile =
-                            await picker.pickImage(source: ImageSource.camera);
-                        //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-                        setState(() {
-                          if (pickedFile != null) {
-                            l = index;
-                            image = File(pickedFile.path);
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  backgroundColor: Colors.green[100],
-                                  title: new Text(
-                                    'Choose image successful',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
-                                  ),
-                                );
-                              },
-                            );
-                          } else {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(10))),
-                                  backgroundColor: Colors.green[100],
-                                  title: new Text(
-                                    'Choose image fail',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
-                                  ),
-                                );
-                              },
-                            );
-                          }
-                        });
-                      },
-                      child: Text(
-                        'Take a picture',
-                        style: TextStyle(color: Colors.white),
                       ),
-                    ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(1, 5, 5, 10),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
+                        child: RaisedButton(
+                          color: Colors.blue[100],
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadiusDirectional.circular(7)),
+                          onPressed: () async {
+                            final pickedFile = await picker.pickImage(
+                                source: ImageSource.camera);
+                            //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                            setState(() {
+                              if (pickedFile != null) {
+                                j = 0;
+                                l = index;
+                                image = File(pickedFile.path);
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                      backgroundColor: Colors.green[100],
+                                      title: new Text(
+                                        'Choose image successful',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 15),
+                                      ),
+                                    );
+                                  },
+                                );
+                              } else {
+                                j = 0;
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                      backgroundColor: Colors.green[100],
+                                      title: new Text(
+                                        'Choose image fail',
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 15),
+                                      ),
+                                    );
+                                  },
+                                );
+                              }
+                            });
+                          },
+                          child: Text(
+                            'Take a picture',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                  // index == l
+                  //     ? Image.file(
+                  //         image!,
+                  //         fit: BoxFit.cover,
+                  //         height: 100,
+                  //         width: 100,
+                  //       )
+                  //     : FlutterLogo(
+                  //         size: 0,
+                  //       ),
                 ],
               );
             } else {
-              index = index - 1;
-              return Align();
+              return Container(
+                height: 0,
+              );
             }
           },
           separatorBuilder: (BuildContext context, int index) =>

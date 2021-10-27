@@ -124,6 +124,7 @@ class _HomePageState extends State<HomePage> {
                             setState(() {
                               if (pickedFile != null) {
                                 k = index;
+                                i = 0;
                                 image = File(pickedFile.path);
                                 showDialog(
                                   context: context,
@@ -142,6 +143,7 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 );
                               } else {
+                                i = 0;
                                 showDialog(
                                   context: context,
                                   builder: (context) {

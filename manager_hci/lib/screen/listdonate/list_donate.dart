@@ -49,25 +49,12 @@ class ListDonate extends StatelessWidget {
                     ],
                   ),
                 ),
-                TextButton(
+                RaisedButton(
+                  color: Colors.red[200],
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          backgroundColor: Colors.green[100],
-                          title: new Text(
-                            'Remove Employee successful',
-                            style: TextStyle(color: Colors.white, fontSize: 15),
-                          ),
-                        );
-                      },
-                    );
+                    showAlertDialog(context);
                   },
-                  child: Text('Remove account'),
+                  child: Text('Delete'),
                 )
               ],
             );
@@ -113,4 +100,34 @@ class ListDonate extends StatelessWidget {
     );
     // bottomNavigationBar: CustomBottomNavigationBar(),
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Cancel"),
+    onPressed: () {},
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Continue"), 
+    onPressed: () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Employee"),
+    content: Text("Do you want to continue deleting this activity?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
