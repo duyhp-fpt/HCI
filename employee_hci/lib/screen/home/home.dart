@@ -273,7 +273,28 @@ showAlertDialog(BuildContext context) {
   );
   Widget continueButton = FlatButton(
     child: Text("Continue"),
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            backgroundColor: Colors.green[100],
+            title: new Text(
+              'You have done this activity',
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          );
+        },
+      );
+    },
   );
 
   // set up the AlertDialog
