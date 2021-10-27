@@ -72,15 +72,17 @@ class CreatePerPageState extends State<CreatePerPage> {
           SizedBox(
             height: 50,
             width: 350,
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      backgroundColor: Colors.green[100],
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                       title: new Text(
                         'Create activity for person successful',
                         style: TextStyle(color: Colors.white, fontSize: 15),
@@ -89,7 +91,6 @@ class CreatePerPageState extends State<CreatePerPage> {
                   },
                 );
               },
-              color: Colors.blue[100],
               child: Text(
                 'Create',
                 style: TextStyle(color: Colors.white, fontSize: 20),

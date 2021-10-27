@@ -26,52 +26,72 @@ class ListProductActivity extends StatelessWidget {
                 height: 50,
                 color: Colors.green[200],
                 child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          (index + 1).toString() + "    ",
-                        ),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        (index + 1).toString() + "    ",
                       ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: Column(children: [
-                          Text('Product Name: ' +
-                              listActivity.elementAt(index).product),
-                          Text('Quantity: ' +
-                              listActivity.elementAt(index).quantity),
-                        ]),
-                      ),
-                      // Image.asset(listActivity.elementAt(index).image),
-                    ]),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Column(children: [
+                        Text('Product Name: ' +
+                            listActivity.elementAt(index).product),
+                        Text('Quantity: ' +
+                            listActivity.elementAt(index).quantity),
+                      ]),
+                    ),
+                    Text(
+                      'Done',
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                    // Image.asset(listActivity.elementAt(index).image),
+                  ],
+                ),
               );
             } else {
-              return Container(
-                height: 50,
-                color: Colors.white,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          (index + 1).toString() + "    ",
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: Column(children: [
-                          Text('Product Name: ' +
-                              listActivity.elementAt(index).product),
-                          Text('Quantity: ' +
-                              listActivity.elementAt(index).quantity),
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    height: 50,
+                    color: Colors.white,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              (index + 1).toString() + "    ",
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Column(children: [
+                              Text('Product Name: ' +
+                                  listActivity.elementAt(index).product),
+                              Text('Quantity: ' +
+                                  listActivity.elementAt(index).quantity),
+                            ]),
+                          ),
+                          // Image.asset(listActivity.elementAt(index).image),
                         ]),
-                      ),
-                      // Image.asset(listActivity.elementAt(index).image),
-                    ]),
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      showAlertDialog(context);
+                    },
+                    child: Text(
+                      'Delete',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    color: Colors.red[200],
+                  ),
+                ],
               );
             }
           },
@@ -98,7 +118,7 @@ class ListProductActivity extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
-              primary: Theme.of(context).primaryColor,
+              // primary: Theme.of(context).primaryColor,
             ),
             child: Container(
               alignment: Alignment.center,
@@ -116,4 +136,34 @@ class ListProductActivity extends StatelessWidget {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Cancel"),
+    onPressed: () {},
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Continue"),
+    onPressed: () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Activity"),
+    content: Text("Do you want to continue deleting this activity?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

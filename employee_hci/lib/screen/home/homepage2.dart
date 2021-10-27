@@ -1,13 +1,25 @@
+import 'dart:io';
+
 import 'package:employee_hci/model/activity.dart';
 import 'package:employee_hci/screen/activity/createactivity.dart';
 import 'package:employee_hci/screen/home/custom_app_bar.dart';
 import 'package:employee_hci/screen/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class HomePage_2 extends StatelessWidget {
-  int i = 0;
+class HomePage_2 extends StatefulWidget {
+  @override
+  State<HomePage_2> createState() => _HomePage_2State();
+}
+
+class _HomePage_2State extends State<HomePage_2> {
+  int j = 0;
+  int l = 0;
+  File? image;
+  final picker = ImagePicker();
   final List<ActivityManagePeople> listActivity =
       ActivityManagePeople.generateListWithPeople();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +31,7 @@ class HomePage_2 extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               child: Text(
-                'Type of activity',
+                'Type \n        Of \n           Activity',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
@@ -57,47 +69,109 @@ class HomePage_2 extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 5),
         child: ListView.separated(
           padding: const EdgeInsets.all(8),
           itemCount: listActivity.length,
           itemBuilder: (BuildContext context, int index) {
             if (!listActivity.elementAt(index).status) {
-              i++;
-              return Container(
-                height: 50,
-                color: Colors.white,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          i.toString() + "    ",
-                        ),
-                      ),
-
-                      Container(
-                        alignment: Alignment.centerLeft,
-                        child: Column(children: [
-                          Text('Name: ' + listActivity.elementAt(index).name),
-                          Text(
-                            'Address: ' + listActivity.elementAt(index).address,
+              j++;
+              return Row(
+                children: [
+                  Container(
+                    height: 50,
+                    color: Colors.white,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              j.toString() + "    ",
+                            ),
                           ),
-                          Text('Price: ' +
-                              listActivity.elementAt(index).quantity +
-                              listActivity.elementAt(index).uom),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Column(children: [
+                              Text('Name: ' +
+                                  listActivity.elementAt(index).name),
+                              Text(
+                                'Address: ' +
+                                    listActivity.elementAt(index).address,
+                              ),
+                              Text('Price: ' +
+                                  listActivity.elementAt(index).quantity +
+                                  listActivity.elementAt(index).uom),
+                            ]),
+                          ),
+                          // Image.asset(listActivity.elementAt(index).image),
                         ]),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(1, 5, 5, 10),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
+                    child: RaisedButton(
+                      color: Colors.blue[100],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusDirectional.circular(7)),
+                      onPressed: () async {
+                        final pickedFile =
+                            await picker.pickImage(source: ImageSource.camera);
+                        //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                        setState(() {
+                          if (pickedFile != null) {
+                            l = index;
+                            image = File(pickedFile.path);
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
+                                  backgroundColor: Colors.green[100],
+                                  title: new Text(
+                                    'Choose image successful',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                  ),
+                                );
+                              },
+                            );
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
+                                  backgroundColor: Colors.green[100],
+                                  title: new Text(
+                                    'Choose image fail',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                        });
+                      },
+                      child: Text(
+                        'Take a picture',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      // Image.asset(listActivity.elementAt(index).image),
-                    ]),
+                    ),
+                  ),
+                ],
               );
             } else {
               index = index - 1;
-              return Container(
-                height: 0,
-              );
+              return Align();
             }
           },
           separatorBuilder: (BuildContext context, int index) =>
@@ -123,7 +197,7 @@ class HomePage_2 extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
-              primary: Theme.of(context).primaryColor,
+              // primary: Theme.of(context).primaryColor,
             ),
             child: Container(
               alignment: Alignment.center,

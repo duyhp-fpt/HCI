@@ -14,7 +14,8 @@ class DetailAppBar extends StatelessWidget {
         children: [
           Image.asset(
             charity.imageUrl,
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
+            width: 400,
             height: double.infinity,
           ),
           SafeArea(

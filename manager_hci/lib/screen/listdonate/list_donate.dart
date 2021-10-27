@@ -94,7 +94,7 @@ class ListDonate extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),
-              primary: Theme.of(context).primaryColor,
+              // primary: Theme.of(context).primaryColor,
             ),
             child: Container(
               alignment: Alignment.center,
