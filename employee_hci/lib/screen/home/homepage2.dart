@@ -175,16 +175,30 @@ class _HomePage_2State extends State<HomePage_2> {
                       ),
                     ],
                   ),
-                  // index == l
-                  //     ? Image.file(
-                  //         image!,
-                  //         fit: BoxFit.cover,
-                  //         height: 100,
-                  //         width: 100,
-                  //       )
-                  //     : FlutterLogo(
-                  //         size: 0,
-                  //       ),
+                  index == l && image != null
+                      ? Image.file(
+                          image!,
+                          fit: BoxFit.cover,
+                          height: 100,
+                          width: 100,
+                        )
+                      : FlutterLogo(
+                          size: 0,
+                        ),
+                  index == l && image != null
+                      ? RaisedButton(
+                          color: Colors.blue[100],
+                          onPressed: () {
+                            showAlertDialog(context);
+                          },
+                          child: Text(
+                            'Done',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                      : FlutterLogo(
+                          size: 0,
+                        ),
                 ],
               );
             } else {
@@ -234,4 +248,34 @@ class _HomePage_2State extends State<HomePage_2> {
       ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Cancel"),
+    onPressed: () {},
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Continue"),
+    onPressed: () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Report"),
+    content: Text("Do you want to continue doing this activity?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }

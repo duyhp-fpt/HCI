@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                             setState(() {
                               if (pickedFile != null) {
                                 k = index;
-                                i = 0;
+                                // i = 0;
                                 image = File(pickedFile.path);
                                 showDialog(
                                   context: context,
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                                   },
                                 );
                               } else {
-                                i = 0;
+                                // i = 0;
                                 showDialog(
                                   context: context,
                                   builder: (context) {
@@ -171,12 +171,45 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  index == k
+                  index == k && image != null
                       ? Image.file(
                           image!,
                           fit: BoxFit.cover,
                           height: 100,
                           width: 100,
+                        )
+                      : FlutterLogo(
+                          size: 0,
+                        ),
+                  index == k && image != null
+                      ? Padding(
+                          padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                            decoration: InputDecoration(
+                              labelText: 'Price: ',
+                              labelStyle: TextStyle(
+                                color: Colors.blue[300],
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                        )
+                      : FlutterLogo(
+                          size: 0,
+                        ),
+                  index == k && image != null
+                      ? RaisedButton(
+                          color: Colors.blue[100],
+                          onPressed: () {
+                            showAlertDialog(context);
+                          },
+                          child: Text(
+                            'Done',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         )
                       : FlutterLogo(
                           size: 0,
@@ -230,4 +263,34 @@ class _HomePageState extends State<HomePage> {
       // ),
     );
   }
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Cancel"),
+    onPressed: () {},
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Continue"),
+    onPressed: () {},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Report"),
+    content: Text("Do you want to continue doing this activity?"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
 }
