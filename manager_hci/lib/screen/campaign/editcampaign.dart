@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/charity.dart';
+import 'package:house_rent/screen/home/home.dart';
 import 'package:image_picker/image_picker.dart';
 
 class EditCampaign extends StatefulWidget {
@@ -184,6 +185,12 @@ class _EditCampaignState extends State<EditCampaign> {
             width: 350,
             child: RaisedButton(
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
                 showDialog(
                   context: context,
                   builder: (context) {

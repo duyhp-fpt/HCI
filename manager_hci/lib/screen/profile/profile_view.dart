@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Huỳnh Phúc Duy',
+            'Manager',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
@@ -44,7 +44,7 @@ class ProfilePage extends StatelessWidget {
             ],
           ),
           Text(
-            'Address: Vĩnh Long\nDate of birth: 17-01-2000\nGender: Male\nPhone number: 0908-690-095\nDonated: 2,500,000 VND',
+            'Name: Huỳnh Phúc Duy\nAddress: Vĩnh Long\nDate of birth: 17-01-2000\nGender: Male\nPhone number: 0908-690-095',
             style: TextStyle(
               color: Colors.white,
               fontSize: 22,
@@ -64,7 +64,6 @@ class ProfilePage extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:house_rent/screen/home/home.dart';
 import 'package:image_picker/image_picker.dart';
 
 class CreateCPPage extends StatefulWidget {
@@ -172,6 +173,12 @@ class CreateCPPageState extends State<CreateCPPage> {
             width: 350,
             child: RaisedButton(
               onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomePage(),
+                  ),
+                );
                 showDialog(
                   context: context,
                   builder: (context) {
