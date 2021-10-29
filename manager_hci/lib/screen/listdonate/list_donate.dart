@@ -25,7 +25,7 @@ class ListDonate extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 60,
+                  height: 70,
                   color: Colors.white,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -106,11 +106,27 @@ showAlertDialog(BuildContext context) {
   // set up the buttons
   Widget cancelButton = FlatButton(
     child: Text("Cancel"),
-    onPressed: () {},
+    onPressed: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return ListDonate();
+          },
+        ),
+      );
+    },
   );
   Widget continueButton = FlatButton(
-    child: Text("Continue"), 
-    onPressed: () {},
+    child: Text("Continue"),
+    onPressed: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) {
+            return ListDonate();
+          },
+        ),
+      );
+    },
   );
 
   // set up the AlertDialog

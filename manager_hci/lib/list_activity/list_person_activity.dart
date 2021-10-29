@@ -12,7 +12,7 @@ class ListPersonActivity extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: new AppBar(
-        title: Text('List Activity of campaign'),
+        title: Text('List people need support'),
         backgroundColor: Colors.blue[100],
       ),
       body: Container(
@@ -32,7 +32,7 @@ class ListPersonActivity extends StatelessWidget {
                       Align(
                         alignment: Alignment.topCenter,
                         child: Text(
-                          (index + 1).toString() + "  -  ",
+                          (index + 1).toString() + "   ",
                         ),
                       ),
                       Container(
@@ -67,7 +67,7 @@ class ListPersonActivity extends StatelessWidget {
                           Align(
                             alignment: Alignment.topCenter,
                             child: Text(
-                              (index + 1).toString() + "  -  ",
+                              (index + 1).toString() + "   ",
                             ),
                           ),
                           Container(

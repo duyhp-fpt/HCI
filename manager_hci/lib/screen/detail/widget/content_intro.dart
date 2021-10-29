@@ -35,23 +35,16 @@ class ContentIntro extends StatelessWidget {
                 Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
           ),
           SizedBox(height: 10),
-          RichText(
-            text: TextSpan(children: [
-              TextSpan(
-                  text: 'Total Price of donate: ',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline1!
-                      .copyWith(fontSize: 16, fontWeight: FontWeight.bold)),
-              TextSpan(
-                text: charity.totalPrice + charity.uom,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1!
-                    .copyWith(fontSize: 14),
-              )
-            ]),
-          )
+          Text(
+            'Campaign Target: ' +
+                charity.target +
+                "/" +
+                charity.totalPrice +
+                " " +
+                charity.uom,
+            style:
+                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
+          ),
         ],
       ),
     );

@@ -20,7 +20,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Manager',
+            'Employee',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,

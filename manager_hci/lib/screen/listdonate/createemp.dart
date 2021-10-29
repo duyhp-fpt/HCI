@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/screen/listdonate/list_donate.dart';
 
 class CreateEmpPage extends StatelessWidget {
   @override
@@ -85,6 +86,13 @@ class CreateEmpPage extends StatelessWidget {
             width: 350,
             child: RaisedButton(
               onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ListDonate();
+                    },
+                  ),
+                );
                 showDialog(
                   context: context,
                   builder: (context) {

@@ -12,7 +12,9 @@ class ListProductActivity extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: new AppBar(
-        title: Text('List Activity of campaign'),
+        title: Text(
+          'List product buy for campaign',
+        ),
         backgroundColor: Colors.blue[100],
       ),
       body: Container(

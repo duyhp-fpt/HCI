@@ -1,3 +1,4 @@
+import 'package:employee_hci/screen/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,13 +21,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             GestureDetector(
               onTap: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return ProfilePage();
-                //     },
-                //   ),
-                // );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ProfilePage();
+                    },
+                  ),
+                );
               },
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/images/avatar.jpg'),
