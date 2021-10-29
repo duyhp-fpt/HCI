@@ -6,7 +6,7 @@ import 'package:house_rent/screen/campaign/editcampaign.dart';
 import 'package:house_rent/screen/detail/widget/about.dart';
 import 'package:house_rent/screen/detail/widget/content_intro.dart';
 import 'package:house_rent/screen/detail/widget/detail_app_bar.dart';
-import 'package:house_rent/screen/listdonate/list_donate.dart';
+import 'package:house_rent/screen/listdonate/list_employer.dart';
 
 class DetailPage extends StatelessWidget {
   final Charity charity;

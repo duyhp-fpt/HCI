@@ -40,7 +40,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Price: ',
+                      labelText: 'Address: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -55,7 +55,37 @@ class CreatePerPageState extends State<CreatePerPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Address: ',
+                      labelText: 'Product: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Price / Quantity: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Unit: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -72,25 +102,24 @@ class CreatePerPageState extends State<CreatePerPage> {
           SizedBox(
             height: 50,
             width: 350,
-            child: ElevatedButton(
+            child: RaisedButton(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      backgroundColor: Colors.green[300],
                       title: new Text(
-                        'Create activity for person successful',
+                        'Create successful',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
                   },
                 );
               },
+              color: Colors.blue[300],
               child: Text(
                 'Create',
                 style: TextStyle(color: Colors.white, fontSize: 20),

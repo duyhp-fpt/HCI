@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:house_rent/screen/listdonate/list_donate.dart';
+import 'package:house_rent/screen/listdonate/list_employer.dart';
 
 class CreateEmpPage extends StatelessWidget {
   @override
@@ -7,7 +7,7 @@ class CreateEmpPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Employee'),
+        title: new Text('Create Employer'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(

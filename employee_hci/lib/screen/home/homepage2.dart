@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:employee_hci/model/activity.dart';
 import 'package:employee_hci/screen/activity/createactivity.dart';
 import 'package:employee_hci/screen/home/custom_app_bar.dart';
+import 'package:employee_hci/screen/home/giveactivity.dart';
 import 'package:employee_hci/screen/home/home.dart';
+import 'package:employee_hci/screen/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -24,7 +26,30 @@ class _HomePage_2State extends State<HomePage_2> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: AppBar(
+        title: Container(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('List people need support'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ProfilePage();
+                      },
+                    ),
+                  );
+                },
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       drawer: new Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -42,12 +67,24 @@ class _HomePage_2State extends State<HomePage_2> {
               ),
             ),
             ListTile(
-              title: Text('Product Activity'),
+              title: Text('Product Activity ( Buy )'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) {
                       return HomePage();
+                    },
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('Product Activity ( Give )'),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return HomePage3();
                     },
                   ),
                 );
@@ -97,15 +134,22 @@ class _HomePage_2State extends State<HomePage_2> {
                               Container(
                                 alignment: Alignment.centerLeft,
                                 child: Column(children: [
-                                  Text('Name: ' +
-                                      listActivity.elementAt(index).name),
+                                  Text(
+                                    'Name: ' +
+                                        listActivity.elementAt(index).name,
+                                    style: TextStyle(fontSize: 12),
+                                  ),
                                   Text(
                                     'Address: ' +
                                         listActivity.elementAt(index).address,
+                                    style: TextStyle(fontSize: 12),
                                   ),
-                                  Text('Price: ' +
-                                      listActivity.elementAt(index).quantity +
-                                      listActivity.elementAt(index).uom),
+                                  Text(
+                                    'Price: ' +
+                                        listActivity.elementAt(index).quantity +
+                                        listActivity.elementAt(index).uom,
+                                    style: TextStyle(fontSize: 12),
+                                  ),
                                 ]),
                               ),
                               // Image.asset(listActivity.elementAt(index).image),
@@ -117,7 +161,7 @@ class _HomePage_2State extends State<HomePage_2> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
                         child: RaisedButton(
-                          color: Colors.blue[100],
+                          color: Colors.blue[200],
                           shape: RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadiusDirectional.circular(7)),
@@ -137,7 +181,7 @@ class _HomePage_2State extends State<HomePage_2> {
                                       shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10))),
-                                      backgroundColor: Colors.green[100],
+                                      backgroundColor: Colors.green[200],
                                       title: new Text(
                                         'Choose image successful',
                                         style: TextStyle(
@@ -155,7 +199,7 @@ class _HomePage_2State extends State<HomePage_2> {
                                       shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(10))),
-                                      backgroundColor: Colors.green[100],
+                                      backgroundColor: Colors.green[200],
                                       title: new Text(
                                         'Choose image fail',
                                         style: TextStyle(
@@ -169,7 +213,7 @@ class _HomePage_2State extends State<HomePage_2> {
                           },
                           child: Text(
                             'Take a picture',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white, fontSize: 12),
                           ),
                         ),
                       ),
@@ -187,7 +231,7 @@ class _HomePage_2State extends State<HomePage_2> {
                         ),
                   index == l && image != null
                       ? RaisedButton(
-                          color: Colors.blue[100],
+                          color: Colors.blue[200],
                           onPressed: () {
                             showAlertDialog(context);
                           },
@@ -271,7 +315,7 @@ showAlertDialog(BuildContext context) {
           return AlertDialog(
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10))),
-            backgroundColor: Colors.green[100],
+            backgroundColor: Colors.green[200],
             title: new Text(
               'You have done this activity',
               style: TextStyle(color: Colors.white, fontSize: 15),

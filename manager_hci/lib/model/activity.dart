@@ -52,6 +52,51 @@ class ActivityManageProduct {
     ];
   }
 }
+class ActivityManageProductGive {
+  String name;
+  String address;
+  String product;
+  String quantity;
+  bool status;
+  ActivityManageProductGive(
+      this.name, this.address, this.product, this.quantity, this.status);
+  static List<ActivityManageProductGive> generateListActivity() {
+    return [
+      ActivityManageProductGive(
+          'Nguyễn Văn Chiến', 'Nha Trang', 'Gạo', '10 kg', true),
+      ActivityManageProductGive(
+          'Nguyễn Văn Chiến', 'Nha Trang', 'Thuốc', '10 vĩ', false),
+      ActivityManageProductGive(
+          'Nguyễn Văn Toàn', 'Cao Bằng', 'Sữa', '1 thùng', true),
+      ActivityManageProductGive(
+          'Nguyễn Văn Toàn', 'Cao Bằng', 'Mì tôm', '1 thùng', false),
+      ActivityManageProductGive(
+          'Nguyễn Thị Trang', 'Bắc Giang', 'Quần áo', '3 bộ', true),
+      ActivityManageProductGive(
+          'Nguyễn Thị Trang', 'Bắc Giang', 'Vở', '10 quyển', false),
+      ActivityManageProductGive(
+          'Nguyễn Tấn Vỹ', 'Cao Bằng', 'Nước uống', '2 bình', true),
+      ActivityManageProductGive(
+          'Nguyễn Văn Chiến', 'Nha Trang', 'Bánh kẹo', '1 thùng', false),
+      ActivityManageProductGive(
+          'Huỳnh Anh Vũ', 'Hải Phòng', 'Tiền Mặt', '1,000,000 VND', true),
+      ActivityManageProductGive(
+          'Nguyễn Thị Hoa', 'Lạng Sơn', 'Thuốc', '15 vĩ', false),
+      ActivityManageProductGive(
+          'Nguyễn Thị Hoa', 'Lạng Sơn', 'Gạo', '30 kg', true),
+      ActivityManageProductGive(
+          'Nguyễn Thị Hoa', 'Lạng Sơn', 'Mì tôm', '1 thùng', false),
+      ActivityManageProductGive(
+          'Huỳnh Anh Vũ', 'Hải Phòng', 'Tiền Mặt', '2,000,000 VND', true),
+      ActivityManageProductGive(
+          'Huỳnh Anh Vũ', 'Hải Phòng', 'Quần áo', '3 bộ', false),
+      ActivityManageProductGive(
+          'Huỳnh Anh Vũ', 'Hải Phòng', 'Gạo', '15 kg', true),
+      ActivityManageProductGive(
+          'Huỳnh Anh Vũ', 'Hải Phòng', 'Thuốc', '12 vĩ', false),
+    ];
+  }
+}
 
 class ActivityManagePeople {
   String name;

@@ -1,25 +1,25 @@
 import 'dart:io';
 
 import 'package:employee_hci/model/activity.dart';
-import 'package:employee_hci/screen/home/giveactivity.dart';
-
+import 'package:employee_hci/screen/activity/createactivity.dart';
+import 'package:employee_hci/screen/home/home.dart';
 import 'package:employee_hci/screen/home/homepage2.dart';
 import 'package:employee_hci/screen/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage3 extends StatefulWidget {
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage3> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage3> {
   int i = 0;
   int k = 0;
   File? image;
   final picker = ImagePicker();
-  final List<ActivityManageProduct> listActivity =
-      ActivityManageProduct.generateListActivity();
+  final List<ActivityManageProductGive> listActivity =
+      ActivityManageProductGive.generateListActivity();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('List product need buy'),
+              Text('List product for people'),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-
       drawer: new Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -119,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 50,
+                        height: 60,
                         color: Colors.white,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -129,6 +128,7 @@ class _HomePageState extends State<HomePage> {
                               alignment: Alignment.topCenter,
                               child: Text(
                                 i.toString() + "    ",
+                                style: TextStyle(fontSize: 12),
                               ),
                             ),
 
@@ -137,12 +137,22 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 children: [
                                   Text(
+                                    'Name: ' +
+                                        listActivity.elementAt(index).name,
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  Text(
+                                    'Address: ' +
+                                        listActivity.elementAt(index).address,
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  Text(
                                     'Product Name: ' +
                                         listActivity.elementAt(index).product,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   Text(
-                                    'Quantity need buy: ' +
+                                    'Remaining quantity: ' +
                                         listActivity.elementAt(index).quantity,
                                     style: TextStyle(fontSize: 12),
                                   ),
@@ -159,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.blue[200],
                           shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadiusDirectional.circular(7)),
+                                  BorderRadiusDirectional.circular(5)),
                           onPressed: () async {
                             final pickedFile = await picker.pickImage(
                                 source: ImageSource.camera);
@@ -232,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                               fontSize: 18,
                             ),
                             decoration: InputDecoration(
-                              labelText: 'Price: ',
+                              labelText: 'Quantity: ',
                               labelStyle: TextStyle(
                                 color: Colors.blue[300],
                                 fontSize: 20,
@@ -269,41 +279,40 @@ class _HomePageState extends State<HomePage> {
               const Divider(),
         ),
       ),
-      // bottomNavigationBar: SizedBox(
-      //   height: 50,
-      //   // width: 20,
-      //   child: Container(
-      //     padding: EdgeInsets.symmetric(horizontal: 20),
-      //     child: ElevatedButton(
-      //       onPressed: () {
-      //         Navigator.of(context).push(
-      //           MaterialPageRoute(
-      //             builder: (context) {
-      //               return CreatePage();
-      //             },
-      //           ),
-      //         );
-      //       },
-      //       style: ElevatedButton.styleFrom(
-      //         shape: RoundedRectangleBorder(
-      //           borderRadius: BorderRadius.circular(8),
-      //         ),
-      //         primary: Theme.of(context).primaryColor,
-      //       ),
-      //       child: Container(
-      //         alignment: Alignment.center,
-      //         padding: EdgeInsets.symmetric(vertical: 15),
-      //         child: Text(
-      //           'Create external activity',
-      //           style: TextStyle(
-      //               color: Colors.white,
-      //               fontSize: 16,
-      //               fontWeight: FontWeight.bold),
-      //         ),
-      //       ),
-      //     ),
-      //   ),
-      // ),
+      bottomNavigationBar: SizedBox(
+        height: 50,
+        // width: 20,
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return CreatePage();
+                  },
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.symmetric(vertical: 15),
+              child: Text(
+                'Create external activity',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -16,7 +16,7 @@ class CreatePageState extends State<CreatePage> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: new Text('Create Activity'),
-        backgroundColor: Colors.blue[100],
+        backgroundColor: Colors.blue[300],
       ),
       body: Column(
         children: [
@@ -24,91 +24,106 @@ class CreatePageState extends State<CreatePage> {
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       labelText: 'Name: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       labelText: 'Identity card: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       labelText: 'Date of birth: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       labelText: 'Address: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
                       labelText: 'Reason: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
                   child: TextField(
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Price: ',
+                      labelText: 'Product: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 20,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Price / Quantity: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 18,
                       ),
                     ),
                   ),
@@ -119,7 +134,7 @@ class CreatePageState extends State<CreatePage> {
           Row(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(1, 5, 5, 10),
+                padding: EdgeInsets.fromLTRB(1, 5, 5, 6),
               ),
               Text(
                 'Image: ',
@@ -139,9 +154,9 @@ class CreatePageState extends State<CreatePage> {
                       size: 0,
                     ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
+                padding: const EdgeInsets.fromLTRB(1, 0, 0, 6),
                 child: RaisedButton(
-                  color: Colors.blue[100],
+                  color: Colors.blue[300],
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadiusDirectional.circular(7)),
                   onPressed: () async {
@@ -188,7 +203,7 @@ class CreatePageState extends State<CreatePage> {
                     });
                   },
                   child: Text(
-                    'Get image',
+                    'Take a picture',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -217,7 +232,7 @@ class CreatePageState extends State<CreatePage> {
               },
             );
           },
-          color: Colors.blue[100],
+          color: Colors.blue[300],
           child: Text(
             'Create',
             style: TextStyle(color: Colors.white, fontSize: 20),

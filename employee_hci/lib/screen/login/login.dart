@@ -2,7 +2,6 @@ import 'package:employee_hci/screen/home/home.dart';
 import 'package:employee_hci/screen/login/forgotpassword.dart';
 import 'package:flutter/material.dart';
 
-
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

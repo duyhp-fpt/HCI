@@ -13,7 +13,7 @@ class ListDonate extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: new AppBar(
-        title: Text('List Employee'),
+        title: Text('List Employer'),
         backgroundColor: Colors.blue[100],
       ),
       body: Container(
