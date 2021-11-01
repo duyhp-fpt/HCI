@@ -34,7 +34,7 @@ class ForgotPassword extends StatelessWidget {
                   fontSize: 18,
                 ),
                 decoration: InputDecoration(
-                  labelText: 'User Name',
+                  labelText: 'Tên Đăng Nhập',
                   labelStyle: TextStyle(
                     color: Colors.blue[300],
                     fontSize: 20,
@@ -53,7 +53,7 @@ class ForgotPassword extends StatelessWidget {
                     ),
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText: 'Phone number',
+                      labelText: 'Điện Thoại',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
