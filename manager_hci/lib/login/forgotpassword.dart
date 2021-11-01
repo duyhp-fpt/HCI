@@ -9,7 +9,7 @@ class ForgotPassword extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: new Text('Login'),
+        title: new Text('Forgot password'),
         backgroundColor: Colors.blue[200],
       ),
       body: Container(
