@@ -13,7 +13,7 @@ class ListProductActivity extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: new AppBar(
         title: Text(
-          'List product buy for campaign',
+          'Danh sách mua',
         ),
         backgroundColor: Colors.blue[100],
       ),
@@ -40,15 +40,24 @@ class ListProductActivity extends StatelessWidget {
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Column(children: [
-                        Text('Product Name: ' +
+                        Text('Tên sản phẩm: ' +
                             listActivity.elementAt(index).product),
-                        Text('Quantity: ' +
-                            listActivity.elementAt(index).quantity),
+                        Text('Số lượng cần mua: ' +
+                            listActivity.elementAt(index).quantity +
+                            ' ' +
+                            listActivity.elementAt(index).uom),
+                        Text('Số lượng đã mua: ' +
+                            listActivity.elementAt(index).quantitybought +
+                            ' ' +
+                            listActivity.elementAt(index).uom),
                       ]),
                     ),
                     Text(
-                      'Done',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
+                      'Đã hoàn\nthành',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
                     ),
                     // Image.asset(listActivity.elementAt(index).image),
                   ],
@@ -73,12 +82,22 @@ class ListProductActivity extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: Column(children: [
-                              Text('Product Name: ' +
-                                  listActivity.elementAt(index).product),
-                              Text('Quantity: ' +
-                                  listActivity.elementAt(index).quantity),
-                            ]),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Tên sản phẩm: ' +
+                                      listActivity.elementAt(index).product),
+                                  Text('Số lượng cần mua: ' +
+                                      listActivity.elementAt(index).quantity +
+                                      ' ' +
+                                      listActivity.elementAt(index).uom),
+                                  Text('Số lượng đã mua: ' +
+                                      listActivity
+                                          .elementAt(index)
+                                          .quantitybought +
+                                      ' ' +
+                                      listActivity.elementAt(index).uom),
+                                ]),
                           ),
                           // Image.asset(listActivity.elementAt(index).image),
                         ]),
@@ -88,7 +107,7 @@ class ListProductActivity extends StatelessWidget {
                       showAlertDialog(context);
                     },
                     child: Text(
-                      'Delete',
+                      'Cập nhật',
                       style: TextStyle(color: Colors.white),
                     ),
                     color: Colors.red[200],
@@ -126,7 +145,7 @@ class ListProductActivity extends StatelessWidget {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create product activity',
+                'Thêm sản phần cần mua',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -144,17 +163,56 @@ showAlertDialog(BuildContext context) {
   // set up the buttons
   Widget cancelButton = FlatButton(
     child: Text("Cancel"),
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ListProductActivity(),
+        ),
+      );
+    },
   );
   Widget continueButton = FlatButton(
     child: Text("Continue"),
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ListProductActivity(),
+        ),
+      );
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            backgroundColor: Colors.green[100],
+            title: new Text(
+              'Cập nhật số lượng thành công',
+              style: TextStyle(color: Colors.white, fontSize: 15),
+            ),
+          );
+        },
+      );
+    },
   );
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Activity"),
-    content: Text("Do you want to continue deleting this activity?"),
+    title: Text("Thay đổi số lượng cần mua"),
+    content: TextField(
+      style: TextStyle(
+        fontSize: 18,
+      ),
+      decoration: InputDecoration(
+        labelText: 'Số lượng cần mua: ',
+        labelStyle: TextStyle(
+          color: Colors.blue[300],
+          fontSize: 20,
+        ),
+      ),
+    ),
     actions: [
       cancelButton,
       continueButton,

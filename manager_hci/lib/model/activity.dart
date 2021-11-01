@@ -29,29 +29,25 @@
 class ActivityManageProduct {
   String product;
   String quantity;
+  String quantitybought;
   bool status;
-  ActivityManageProduct(this.product, this.quantity, this.status);
+  String uom;
+  ActivityManageProduct(
+      this.product, this.quantity, this.quantitybought, this.status, this.uom);
   static List<ActivityManageProduct> generateListActivity() {
     return [
-      ActivityManageProduct('Gạo', '1000 kg', true),
-      ActivityManageProduct('Thuốc', '1000 vĩ', true),
-      ActivityManageProduct('Sữa', '1000 thùng', true),
-      ActivityManageProduct('Mì tôm', '1000 thùng', false),
-      ActivityManageProduct('Quần áo', '1000 bộ', true),
-      ActivityManageProduct('Vở', '1000 quyển', true),
-      ActivityManageProduct('Nước uống', '1000 bình', true),
-      ActivityManageProduct('Bánh kẹo', '1000 thùng', false),
-      ActivityManageProduct('Tiền Mặt', '100 triệu', true),
-      ActivityManageProduct('Thuốc', '500 vĩ', false),
-      ActivityManageProduct('Gạo', '300 kg', false),
-      ActivityManageProduct('Mì tôm', '100 thùng', false),
-      ActivityManageProduct('Tiền Mặt', '500 triệu', true),
-      ActivityManageProduct('Quần áo', '300 bộ', false),
-      ActivityManageProduct('Gạo', '1500 kg', true),
-      ActivityManageProduct('Thuốc', '1200 vĩ', false),
+      ActivityManageProduct('Gạo', '1000', '1000', true, 'kg'),
+      ActivityManageProduct('Thuốc', '1000 ', '1000', true, 'vĩ'),
+      ActivityManageProduct('Sữa', '1000', '1000', true, 'thùng'),
+      ActivityManageProduct('Mì tôm', '1000 ', '1000', true, 'thùng'),
+      ActivityManageProduct('Quần áo', '1000', '1000', true, 'bộ'),
+      ActivityManageProduct('Vở', '1000', '450', false, 'quyển'),
+      ActivityManageProduct('Nước uống', '1000 ', '500', false, 'bình'),
+      ActivityManageProduct('Bánh kẹo', '1000 ', '320', false, 'thùng'),
     ];
   }
 }
+
 class ActivityManageProductGive {
   String name;
   String address;
@@ -111,7 +107,7 @@ class ActivityManagePeople {
       ActivityManagePeople(
         'Nguyễn Văn Toàn',
         'Cao Bằng',
-        '5,000,000',
+        '1,000,000',
         'VND',
         false,
       ),
@@ -120,77 +116,77 @@ class ActivityManagePeople {
         'Bắc Giang',
         '2,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Nguyễn Tấn Vỹ',
         'Cao Bằng',
         '6,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Nguyễn Thị Trang',
         'Bắc Giang',
-        '10,000,000',
+        '1,000,000',
         'VND',
         false,
       ),
       ActivityManagePeople(
         'Võ Tấn Đạt',
         'TP.Hồ Chí Minh',
-        '3,000,000',
+        '1,000,000',
         'VND',
-        true,
+        false,
       ),
       ActivityManagePeople(
         'Huỳnh Phúc Duy',
         'Hà Nội',
-        '8,000,000',
+        '2,000,000',
         'VND',
         true,
       ),
       ActivityManagePeople(
         'Nguyễn Văn Thanh',
         'Cao Bằng',
-        '10,000,000',
+        '1,000,000',
         'VND',
-        false,
+        true,
       ),
       ActivityManagePeople(
         'Nguyễn Công Vinh',
         'Bắc Giang',
-        '9,000,000',
+        '1,000,000',
         'VND',
         true,
       ),
       ActivityManagePeople(
         'Nguyễn Thị Hoa',
         'Lạng Sơn',
-        '4,000,000',
+        '2,000,000',
         'VND',
         true,
       ),
       ActivityManagePeople(
         'Nguyễn Văn Thanh',
         'Đắk Lắk',
-        '5,000,000',
+        '3,000,000',
         'VND',
         true,
       ),
       ActivityManagePeople(
         'Nguyễn Văn Chiến',
         'Nha Trang',
-        '6,000,000',
+        '2,000,000',
         'VND',
         true,
       ),
       ActivityManagePeople(
         'Huỳnh Anh Vũ',
         'Hải Phòng',
-        '8,000,000',
+        '1,000,000',
         'VND',
-        false,
+        true,
       ),
     ];
   }

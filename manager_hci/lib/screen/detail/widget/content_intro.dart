@@ -25,14 +25,18 @@ class ContentIntro extends StatelessWidget {
           ),
           Text(
             'Địa chỉ: ' + charity.address,
-            style:
-                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
             'Sáng lập bởi: ' + charity.nameOrganization,
-            style:
-                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
@@ -42,8 +46,18 @@ class ContentIntro extends StatelessWidget {
                 charity.totalPrice +
                 " " +
                 charity.uom,
-            style:
-                Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Ngày tạo: 1/6/2021',
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ],
       ),

@@ -12,7 +12,7 @@ class ListPersonActivity extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: new AppBar(
-        title: Text('List people need support'),
+        title: Text('Danh sách người được hỗ trợ'),
         backgroundColor: Colors.blue[100],
       ),
       body: Container(
@@ -23,7 +23,7 @@ class ListPersonActivity extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             if (listActivity.elementAt(index).status) {
               return Container(
-                height: 50,
+                height: 67,
                 color: Colors.green[200],
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -37,18 +37,23 @@ class ListPersonActivity extends StatelessWidget {
                       ),
                       Container(
                         alignment: Alignment.centerLeft,
-                        child: Column(children: [
-                          Text('Name: ' + listActivity.elementAt(index).name),
-                          Text('Price: ' +
-                              listActivity.elementAt(index).quantity +
-                              listActivity.elementAt(index).uom),
-                          Text('Address: ' +
-                              listActivity.elementAt(index).address),
-                        ]),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  'Tên: ' + listActivity.elementAt(index).name),
+                              Text('Số tiền nhận: ' +
+                                  listActivity.elementAt(index).quantity +
+                                  ' ' +
+                                  listActivity.elementAt(index).uom),
+                              Text('Địa chỉ: ' +
+                                  listActivity.elementAt(index).address),
+                              Text('Ngày nhận: 11/8/2021'),
+                            ]),
                       ),
                       Text(
-                        'Done',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        'Đã hoàn\thành',
+                        style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       // Image.asset(listActivity.elementAt(index).image),
                     ]),
@@ -72,15 +77,18 @@ class ListPersonActivity extends StatelessWidget {
                           ),
                           Container(
                             alignment: Alignment.centerLeft,
-                            child: Column(children: [
-                              Text('Name: ' +
-                                  listActivity.elementAt(index).name),
-                              Text('Price: ' +
-                                  listActivity.elementAt(index).quantity +
-                                  listActivity.elementAt(index).uom),
-                              Text('Address: ' +
-                                  listActivity.elementAt(index).address),
-                            ]),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Tên: ' +
+                                      listActivity.elementAt(index).name),
+                                  Text('Số tiền nhận: ' +
+                                      listActivity.elementAt(index).quantity +
+                                      ' ' +
+                                      listActivity.elementAt(index).uom),
+                                  Text('Địa chỉ: ' +
+                                      listActivity.elementAt(index).address),
+                                ]),
                           ),
                           // Image.asset(listActivity.elementAt(index).image),
                         ]),
@@ -128,7 +136,7 @@ class ListPersonActivity extends StatelessWidget {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create activity for person',
+                'Thêm người được nhận',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

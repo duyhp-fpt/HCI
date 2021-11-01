@@ -10,7 +10,7 @@ class CreateProPageState extends State<CreateProPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Activity'),
+        title: new Text('Thêm sản phẩm cần mua'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(
@@ -25,7 +25,7 @@ class CreateProPageState extends State<CreateProPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Product Name: ',
+                      labelText: 'Tên sản phẩm: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -40,7 +40,7 @@ class CreateProPageState extends State<CreateProPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Quantity: ',
+                      labelText: 'Số lượng cần mua: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -67,7 +67,7 @@ class CreateProPageState extends State<CreateProPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Create product activity successful',
+                        'Tạo thành công sản phẩm cần mua',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
@@ -76,7 +76,7 @@ class CreateProPageState extends State<CreateProPage> {
               },
               color: Colors.blue[100],
               child: Text(
-                'Create',
+                'Thêm',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),

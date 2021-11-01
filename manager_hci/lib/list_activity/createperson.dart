@@ -5,13 +5,13 @@ class CreatePerPage extends StatefulWidget {
 }
 
 class CreatePerPageState extends State<CreatePerPage> {
-  String dropdownValue = 'Money';
+  String dropdownValue = 'Tiền';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Activity (Give)'),
+        title: new Text('Thêm vào danh sách người nhận'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(
@@ -26,7 +26,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Name: ',
+                      labelText: 'Tên: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -41,7 +41,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Address: ',
+                      labelText: 'Địa chỉ: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -71,7 +71,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                           dropdownValue = newValue!;
                         });
                       },
-                      items: <String>['Money', 'Not money']
+                      items: <String>['Tiền', 'Không phải tiền']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -81,7 +81,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                     ),
                   ],
                 ),
-                if (dropdownValue == 'Not Money')
+                if (dropdownValue == 'Không phải tiền')
                   Padding(
                     padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                     child: TextField(
@@ -89,7 +89,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                         fontSize: 18,
                       ),
                       decoration: InputDecoration(
-                        labelText: 'Product: ',
+                        labelText: 'Tên sản phẩm: ',
                         labelStyle: TextStyle(
                           color: Colors.blue[300],
                           fontSize: 20,
@@ -97,7 +97,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       ),
                     ),
                   ),
-                if (dropdownValue == 'Not money')
+                if (dropdownValue == 'Không phải tiền')
                   Padding(
                     padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                     child: TextField(
@@ -105,7 +105,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                         fontSize: 18,
                       ),
                       decoration: InputDecoration(
-                        labelText: 'Quantity: ',
+                        labelText: 'Số lượng: ',
                         labelStyle: TextStyle(
                           color: Colors.blue[300],
                           fontSize: 20,
@@ -113,7 +113,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       ),
                     ),
                   ),
-                if (dropdownValue == 'Money')
+                if (dropdownValue == 'Tiền')
                   Padding(
                     padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                     child: TextField(
@@ -121,7 +121,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                         fontSize: 18,
                       ),
                       decoration: InputDecoration(
-                        labelText: 'Price: ',
+                        labelText: 'Số tiền: ',
                         labelStyle: TextStyle(
                           color: Colors.blue[300],
                           fontSize: 20,
@@ -129,7 +129,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       ),
                     ),
                   ),
-                if (dropdownValue == 'Money')
+                if (dropdownValue == 'Tiền')
                   Padding(
                     padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                     child: TextField(
@@ -137,7 +137,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                         fontSize: 18,
                       ),
                       decoration: InputDecoration(
-                        labelText: 'Unit: VND',
+                        labelText: 'Đơn vị: VND',
                         labelStyle: TextStyle(
                           color: Colors.blue[300],
                           fontSize: 20,
@@ -145,7 +145,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                       ),
                     ),
                   ),
-                if (dropdownValue == 'Not money')
+                if (dropdownValue == 'Không phải tiền')
                   Padding(
                     padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                     child: TextField(
@@ -153,7 +153,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                         fontSize: 18,
                       ),
                       decoration: InputDecoration(
-                        labelText: 'Unit: ',
+                        labelText: 'Đơn vị: ',
                         labelStyle: TextStyle(
                           color: Colors.blue[300],
                           fontSize: 20,
@@ -180,7 +180,7 @@ class CreatePerPageState extends State<CreatePerPage> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[300],
                       title: new Text(
-                        'Create successful',
+                        'Thêm vào danh sách thành công',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
@@ -189,7 +189,7 @@ class CreatePerPageState extends State<CreatePerPage> {
               },
               color: Colors.blue[300],
               child: Text(
-                'Create',
+                'Thêm',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),

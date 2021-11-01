@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:house_rent/model/charity.dart';
+import 'package:house_rent/screen/detail/detail.dart';
 import 'package:house_rent/screen/home/home.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -8,10 +9,12 @@ class EditCampaign extends StatefulWidget {
   final Charity charity;
   EditCampaign({Key? key, required this.charity}) : super(key: key);
   @override
-  State<EditCampaign> createState() => _EditCampaignState();
+  State<EditCampaign> createState() => _EditCampaignState(charity: charity);
 }
 
 class _EditCampaignState extends State<EditCampaign> {
+  final Charity charity;
+  _EditCampaignState({Key? key, required this.charity});
   File? image;
   final picker = ImagePicker();
   @override
@@ -160,7 +163,7 @@ class _EditCampaignState extends State<EditCampaign> {
                                             Radius.circular(10))),
                                     backgroundColor: Colors.green[100],
                                     title: new Text(
-                                      'Choose image successful',
+                                      'Chọn ảnh thành công',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 15),
                                     ),
@@ -177,7 +180,7 @@ class _EditCampaignState extends State<EditCampaign> {
                                             Radius.circular(10))),
                                     backgroundColor: Colors.green[100],
                                     title: new Text(
-                                      'Choose image fail',
+                                      'Chọn ảnh thất bại',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 15),
                                     ),
@@ -209,7 +212,7 @@ class _EditCampaignState extends State<EditCampaign> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(),
+                    builder: (context) => DetailPage(charity: charity),
                   ),
                 );
                 showDialog(
@@ -220,7 +223,7 @@ class _EditCampaignState extends State<EditCampaign> {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Updated campaign successful',
+                        'Cập nhật thành công',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );

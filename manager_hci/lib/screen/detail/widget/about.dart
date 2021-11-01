@@ -17,7 +17,7 @@ class About extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline1!
-                .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 10,
@@ -25,8 +25,10 @@ class About extends StatelessWidget {
           Text(
             // 'Enum veniam dolor sint ipsum culpa magna dolor incididunt laborum excepteu...',
             charity.description,
-            style:
-                Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
+            style: Theme.of(context)
+                .textTheme
+                .headline1!
+                .copyWith(fontSize: 14, fontWeight: FontWeight.bold),
           )
         ],
       ),

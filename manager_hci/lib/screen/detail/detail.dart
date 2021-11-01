@@ -21,7 +21,7 @@ class DetailPage extends StatelessWidget {
             DetailAppBar(charity: charity),
             SizedBox(height: 20),
             ContentIntro(charity: charity),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             About(
               charity: charity,
             ),
