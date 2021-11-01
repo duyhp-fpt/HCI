@@ -7,7 +7,7 @@ class CreateEmpPage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Employer'),
+        title: new Text('Tạo cộng tác viên'),
         backgroundColor: Colors.blue[100],
       ),
       body: Column(
@@ -22,7 +22,7 @@ class CreateEmpPage extends StatelessWidget {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Employee Name: ',
+                      labelText: 'Tên: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -37,7 +37,7 @@ class CreateEmpPage extends StatelessWidget {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'User Name: ',
+                      labelText: 'Tên đăng nhập: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -52,7 +52,7 @@ class CreateEmpPage extends StatelessWidget {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Password: ',
+                      labelText: 'Mật khẩu: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -67,7 +67,7 @@ class CreateEmpPage extends StatelessWidget {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Phone Number: ',
+                      labelText: 'Số điện thoại: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -101,7 +101,7 @@ class CreateEmpPage extends StatelessWidget {
                           borderRadius: BorderRadius.all(Radius.circular(10))),
                       backgroundColor: Colors.green[100],
                       title: new Text(
-                        'Create Employee successful',
+                        'Tạo mới thành công',
                         style: TextStyle(color: Colors.white, fontSize: 15),
                       ),
                     );
@@ -110,7 +110,7 @@ class CreateEmpPage extends StatelessWidget {
               },
               color: Colors.blue[100],
               child: Text(
-                'Create',
+                'Tạo',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),

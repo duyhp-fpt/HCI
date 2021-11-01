@@ -19,24 +19,25 @@ class _EditCampaignState extends State<EditCampaign> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Update Campaign'),
+        title: new Text('Cập nhật thông tin chiến dịch'),
         backgroundColor: Colors.blue[100],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 20, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 20, 5, 20),
                   child: TextField(
+                    enabled: false,
                     controller: TextEditingController()
                       ..text = widget.charity.name,
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Name: ',
+                      labelText: 'Tên chiến dịch: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -45,15 +46,16 @@ class _EditCampaignState extends State<EditCampaign> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
+                    enabled: false,
                     controller: TextEditingController()
                       ..text = widget.charity.address,
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Address: ',
+                      labelText: 'Địa chỉ: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -62,7 +64,7 @@ class _EditCampaignState extends State<EditCampaign> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
                     controller: TextEditingController()
                       ..text = widget.charity.nameOrganization,
@@ -70,7 +72,7 @@ class _EditCampaignState extends State<EditCampaign> {
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Organization: ',
+                      labelText: 'Sáng lập bởi: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -79,15 +81,34 @@ class _EditCampaignState extends State<EditCampaign> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
+                    enabled: false,
+                    controller: TextEditingController()
+                      ..text = widget.charity.totalPrice + widget.charity.uom,
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Chỉ tiêu: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
+                  child: TextField(
+                    maxLines: null,
                     controller: TextEditingController()
                       ..text = widget.charity.description,
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Description: ',
+                      labelText: 'Mô tả: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -101,7 +122,7 @@ class _EditCampaignState extends State<EditCampaign> {
                       padding: EdgeInsets.fromLTRB(1, 5, 5, 15),
                     ),
                     Text(
-                      'Image: ',
+                      'Ảnh mới: ',
                       style: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -167,7 +188,7 @@ class _EditCampaignState extends State<EditCampaign> {
                           });
                         },
                         child: Text(
-                          'Get image',
+                          'Chọn ảnh',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -208,7 +229,7 @@ class _EditCampaignState extends State<EditCampaign> {
               },
               color: Colors.blue[100],
               child: Text(
-                'Update',
+                'Cập nhật',
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),

@@ -15,22 +15,23 @@ class CreateCPPageState extends State<CreateCPPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Campaign'),
+        title: new Text('Tạo chiến dịch mới'),
         backgroundColor: Colors.blue[100],
       ),
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
         children: [
           Container(
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 20, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 20, 5, 20),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Name: ',
+                      labelText: 'Tên chiến dịch : ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -39,13 +40,13 @@ class CreateCPPageState extends State<CreateCPPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Address: ',
+                      labelText: 'Địa chỉ : ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -54,13 +55,13 @@ class CreateCPPageState extends State<CreateCPPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Organization: ',
+                      labelText: 'Tên người tạo / tên tổ chức: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -69,13 +70,58 @@ class CreateCPPageState extends State<CreateCPPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 40),
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Description: ',
+                      labelText: 'Mô tả : ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Chỉ tiêu : ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Đơn vị: ',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 20),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    decoration: InputDecoration(
+                      labelText: 'Ngày tạo: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -89,7 +135,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                       padding: EdgeInsets.fromLTRB(1, 5, 5, 15),
                     ),
                     Text(
-                      'Image: ',
+                      'Ảnh: ',
                       style: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -127,7 +173,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                                             Radius.circular(10))),
                                     backgroundColor: Colors.green[100],
                                     title: new Text(
-                                      'Choose image successful',
+                                      'Chọn ảnh thành công',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 15),
                                     ),
@@ -144,7 +190,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                                             Radius.circular(10))),
                                     backgroundColor: Colors.green[100],
                                     title: new Text(
-                                      'Choose image fail',
+                                      'Chọn ảnh thất bại',
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 15),
                                     ),
@@ -155,7 +201,7 @@ class CreateCPPageState extends State<CreateCPPage> {
                           });
                         },
                         child: Text(
-                          'Get image',
+                          'Chọn ảnh',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
@@ -166,42 +212,42 @@ class CreateCPPageState extends State<CreateCPPage> {
             ),
           ),
           SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            height: 50,
-            width: 350,
-            child: RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
-                );
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      backgroundColor: Colors.green[100],
-                      title: new Text(
-                        'Create campaign successful',
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                      ),
-                    );
-                  },
-                );
-              },
-              color: Colors.blue[100],
-              child: Text(
-                'Create',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ),
+            height: 200,
           ),
         ],
+      ),
+      bottomNavigationBar: SizedBox(
+        height: 50,
+        width: 350,
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ),
+            );
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  backgroundColor: Colors.green[100],
+                  title: new Text(
+                    'Tạo chiến dịch thành công',
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                );
+              },
+            );
+          },
+          color: Colors.blue[100],
+          child: Text(
+            'Tạo',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+        ),
       ),
     );
   }

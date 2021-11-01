@@ -45,7 +45,7 @@ class DetailPage extends StatelessWidget {
                 child: Container(
                   alignment: Alignment.center,
                   child: Text(
-                    'View list employee',
+                    'Danh sách cộng tác viên',
                     style: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 16,
@@ -76,7 +76,7 @@ class DetailPage extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        'View list\nproduct activity',
+                        'Danh sách\ mua',
                         style: TextStyle(
                             color: Colors.blue[300],
                             fontSize: 16,
@@ -104,7 +104,7 @@ class DetailPage extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        'View list activity\nfor person',
+                        'Danh sách hỗ trợ ',
                         style: TextStyle(
                             color: Colors.blue[300],
                             fontSize: 16,
@@ -135,7 +135,7 @@ class DetailPage extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    'Update Campaign',
+                    'Cập nhật thông tin chiến dịch',
                     style: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 16,

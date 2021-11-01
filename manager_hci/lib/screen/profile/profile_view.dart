@@ -4,12 +4,13 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
       appBar: new AppBar(
-        title: new Text('Profile'),
+        title: new Text('Thông tin cá nhân'),
         backgroundColor: Colors.blue[200],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             padding: EdgeInsets.all(8),
@@ -20,14 +21,15 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Manager',
+            'Quản lý',
+            textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 30,
             ),
           ),
           SizedBox(height: 5),
-          buildTextField('Name', 'Huỳnh Phúc Duy'),
+          buildTextField('Tên', 'Huỳnh Phúc Duy'),
           SizedBox(
             height: 3,
           ),
@@ -35,28 +37,38 @@ class ProfilePage extends StatelessWidget {
           SizedBox(
             height: 3,
           ),
-          buildTextField('Address', 'Lê Văn Lương, Nhà Bè District, HCM city'),
+          buildTextField('Địa chỉ', 'Lê Văn Lương, Nhà Bè District, HCM city'),
           SizedBox(
             height: 3,
           ),
-          buildTextField('Identity Card', '331 312 321'),
+          buildTextField('CMND/CCCD', '331 312 321'),
           SizedBox(
             height: 3,
           ),
-          buildTextField('Phone Number', '0908 690 095'),
+          buildTextField('Số điện thoại', '0908 690 095'),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+            child: RaisedButton(
+              onPressed: () {
+                showAlertDialog(context);
+              },
+              color: Colors.blue[300],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                'Cập nhật thông tin cá nhân',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                ),
+              ),
+            ),
+          )
         ],
-      ),
-      bottomNavigationBar: TextButton(
-        onPressed: () {
-          showAlertDialog(context);
-        },
-        child: Text(
-          'Update',
-          style: TextStyle(
-            color: Colors.blue[400],
-            fontSize: 25,
-          ),
-        ),
       ),
     );
   }
@@ -127,7 +139,7 @@ TextField buildTextField(String label, String placeholder) {
     decoration: InputDecoration(
         contentPadding: EdgeInsets.only(bottom: 3),
         labelText: label,
-        labelStyle: TextStyle(fontSize: 20, color: Colors.blue[300]),
+        labelStyle: TextStyle(fontSize: 20, color: Colors.blue[400]),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintText: placeholder,
         hintStyle: TextStyle(

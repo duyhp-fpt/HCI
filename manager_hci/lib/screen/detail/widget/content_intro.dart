@@ -14,7 +14,7 @@ class ContentIntro extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Charity Name: ' + charity.name,
+            charity.name,
             style: Theme.of(context).textTheme.headline1!.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -24,19 +24,19 @@ class ContentIntro extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Address: ' + charity.address,
+            'Địa chỉ: ' + charity.address,
             style:
                 Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
           ),
           SizedBox(height: 10),
           Text(
-            'Organization: ' + charity.nameOrganization,
+            'Sáng lập bởi: ' + charity.nameOrganization,
             style:
                 Theme.of(context).textTheme.headline1!.copyWith(fontSize: 14),
           ),
           SizedBox(height: 10),
           Text(
-            'Campaign Target: ' +
+            'Chỉ tiêu: ' +
                 charity.target +
                 "/" +
                 charity.totalPrice +

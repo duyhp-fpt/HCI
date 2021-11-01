@@ -9,7 +9,7 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: new Text('Login'),
+        title: new Text('Đăng nhập'),
         backgroundColor: Colors.blue[200],
       ),
       body: Container(
@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
             Container(
               width: 400,
               height: 200,
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
               // child: FlutterLogo(),
               child: Image.asset(
                 ('assets/images/logoApp.png'),
@@ -35,7 +35,7 @@ class LoginPage extends StatelessWidget {
                   fontSize: 18,
                 ),
                 decoration: InputDecoration(
-                  labelText: 'User Name',
+                  labelText: 'Tên đăng nhập',
                   labelStyle: TextStyle(
                     color: Colors.blue[300],
                     fontSize: 20,
@@ -54,7 +54,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      labelText: 'Mật khẩu',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -65,7 +65,7 @@ class LoginPage extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    'Show',
+                    'Hiện/Ẩn',
                     style: TextStyle(
                       color: Colors.blue[300],
                       fontSize: 17,
@@ -90,7 +90,7 @@ class LoginPage extends StatelessWidget {
                     );
                   },
                   color: Colors.blue[200],
-                  child: Text('Sign In',
+                  child: Text('Đăng nhập',
                       style: TextStyle(
                         color: Colors.white,
                       )),
@@ -120,7 +120,7 @@ class LoginPage extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      'Forgot Password',
+                      'Quên mật khẩu',
                     ),
                   ),
                 ],

@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create campaign',
+                'Tạo chiến dịch',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

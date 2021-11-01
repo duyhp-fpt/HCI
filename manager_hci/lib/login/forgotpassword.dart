@@ -9,7 +9,7 @@ class ForgotPassword extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: new Text('Forgot password'),
+        title: new Text('Lấy lại mật khẩu'),
         backgroundColor: Colors.blue[200],
       ),
       body: Container(
@@ -22,23 +22,23 @@ class ForgotPassword extends StatelessWidget {
             Container(
               width: 400,
               height: 200,
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(10),
               // child: FlutterLogo(),
               child: Image.asset(
                 ('assets/images/logoApp.png'),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: TextField(
                 style: TextStyle(
                   fontSize: 18,
                 ),
                 decoration: InputDecoration(
-                  labelText: 'User Name',
+                  labelText: 'Tên đăng nhập',
                   labelStyle: TextStyle(
                     color: Colors.blue[300],
-                    fontSize: 20,
+                    fontSize: 18,
                   ),
                 ),
               ),
@@ -47,14 +47,14 @@ class ForgotPassword extends StatelessWidget {
               alignment: AlignmentDirectional.centerEnd,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: TextField(
                     style: TextStyle(
                       fontSize: 18,
                     ),
                     obscureText: true,
                     decoration: InputDecoration(
-                      labelText: 'Phone number',
+                      labelText: 'Email',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 20,
@@ -74,8 +74,39 @@ class ForgotPassword extends StatelessWidget {
                 // ),
               ],
             ),
+            Stack(
+              alignment: AlignmentDirectional.centerEnd,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: 'Số điện thoại',
+                      labelStyle: TextStyle(
+                        color: Colors.blue[300],
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                // TextButton(
+                //   onPressed: () {},
+                //   child: Text(
+                //     'Show',
+                //     style: TextStyle(
+                //       color: Colors.blue[300],
+                //       fontSize: 17,
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
               child: SizedBox(
                 height: 50,
                 width: 300,
@@ -88,9 +119,24 @@ class ForgotPassword extends StatelessWidget {
                         },
                       ),
                     );
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10))),
+                          backgroundColor: Colors.green[100],
+                          title: new Text(
+                            'Mật khẩu mới của bạn là : @123456',
+                            style: TextStyle(color: Colors.white, fontSize: 15),
+                          ),
+                        );
+                      },
+                    );
                   },
                   color: Colors.blue[200],
-                  child: Text('Send request to admin',
+                  child: Text('Lấy lại mật khẩu',
                       style: TextStyle(
                         color: Colors.white,
                       )),
@@ -120,14 +166,14 @@ class ForgotPassword extends StatelessWidget {
                       );
                     },
                     child: Text(
-                      'Back to sign in',
+                      'Đăng nhập',
                     ),
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 20,
             )
           ],
         ),

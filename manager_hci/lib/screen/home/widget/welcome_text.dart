@@ -9,7 +9,7 @@ class WelcomeText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Welcome to charity system',
+            'Chào mừng quản lý quay lại với chiến dịch',
             style: Theme.of(context)
                 .textTheme
                 .bodyText1!

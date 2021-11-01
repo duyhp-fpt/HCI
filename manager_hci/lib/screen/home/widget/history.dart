@@ -15,7 +15,7 @@ class History extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'My Campaign',
+                'Chiến dịch của tôi',
                 style: Theme.of(context)
                     .textTheme
                     .headline1!

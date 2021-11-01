@@ -13,7 +13,7 @@ class About extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Description',
+            'Mô tả',
             style: Theme.of(context)
                 .textTheme
                 .headline1!
