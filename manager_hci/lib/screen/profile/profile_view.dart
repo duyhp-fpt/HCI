@@ -77,7 +77,7 @@ class ProfilePage extends StatelessWidget {
 showAlertDialog(BuildContext context) {
   // set up the buttons
   Widget cancelButton = FlatButton(
-    child: Text("Cancel"),
+    child: Text("Hủy"),
     onPressed: () {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -89,7 +89,7 @@ showAlertDialog(BuildContext context) {
     },
   );
   Widget continueButton = FlatButton(
-    child: Text("Continue"),
+    child: Text("Tiếp Tục"),
     onPressed: () {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -106,7 +106,7 @@ showAlertDialog(BuildContext context) {
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             backgroundColor: Colors.green[100],
             title: new Text(
-              'Update successful',
+              'Cập nhật thành công',
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           );
@@ -117,8 +117,8 @@ showAlertDialog(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Activity"),
-    content: Text("Do you want to saving information?"),
+    title: Text("Cập Nhật"),
+    content: Text("Bạn có chắc muốn lưu thông tin?"),
     actions: [
       cancelButton,
       continueButton,

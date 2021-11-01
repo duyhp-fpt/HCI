@@ -20,14 +20,14 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Employee',
+            'Cộng Tác Viên',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
             ),
           ),
           SizedBox(height: 5),
-          buildTextField('Name', 'Huỳnh Phúc Duy'),
+          buildTextField('Tên', 'Huỳnh Phúc Duy'),
           SizedBox(
             height: 3,
           ),
@@ -35,15 +35,16 @@ class ProfilePage extends StatelessWidget {
           SizedBox(
             height: 3,
           ),
-          buildTextField('Address', 'Lê Văn Lương, Nhà Bè District, HCM city'),
+          buildTextField(
+              'Địa Chỉ', 'Lê Văn Lương, Nhà Bè District, HCM city'),
           SizedBox(
             height: 3,
           ),
-          buildTextField('Identity Card', '331 312 321'),
+          buildTextField('CMND', '331 312 321'),
           SizedBox(
             height: 3,
           ),
-          buildTextField('Phone Number', '0908 690 095'),
+          buildTextField('Số Điện Thoại', '0908 690 095'),
         ],
       ),
       bottomNavigationBar: TextButton(
@@ -51,7 +52,7 @@ class ProfilePage extends StatelessWidget {
           showAlertDialog(context);
         },
         child: Text(
-          'Update',
+          'Cập Nhật',
           style: TextStyle(
             color: Colors.blue[400],
             fontSize: 25,
@@ -65,7 +66,7 @@ class ProfilePage extends StatelessWidget {
 showAlertDialog(BuildContext context) {
   // set up the buttons
   Widget cancelButton = FlatButton(
-    child: Text("Cancel"),
+    child: Text("Hủy"),
     onPressed: () {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -77,7 +78,7 @@ showAlertDialog(BuildContext context) {
     },
   );
   Widget continueButton = FlatButton(
-    child: Text("Continue"),
+    child: Text("Tiếp Tục"),
     onPressed: () {
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -94,7 +95,7 @@ showAlertDialog(BuildContext context) {
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             backgroundColor: Colors.green[100],
             title: new Text(
-              'Update successful',
+              'Cập nhật thành công',
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           );
@@ -105,8 +106,8 @@ showAlertDialog(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Activity"),
-    content: Text("Do you want to saving information?"),
+    title: Text("Cập Nhật"),
+    content: Text("Bạn có chắc là muốn lưu thông tin?"),
     actions: [
       cancelButton,
       continueButton,
