@@ -75,15 +75,11 @@ class ActivityManageProductGive {
       ActivityManageProductGive(
           'Nguyễn Văn Chiến', 'Nha Trang', 'Bánh kẹo', '1 thùng', false),
       ActivityManageProductGive(
-          'Huỳnh Anh Vũ', 'Hải Phòng', 'Tiền Mặt', '1,000,000 VND', true),
-      ActivityManageProductGive(
           'Nguyễn Thị Hoa', 'Lạng Sơn', 'Thuốc', '15 vĩ', false),
       ActivityManageProductGive(
           'Nguyễn Thị Hoa', 'Lạng Sơn', 'Gạo', '30 kg', true),
       ActivityManageProductGive(
           'Nguyễn Thị Hoa', 'Lạng Sơn', 'Mì tôm', '1 thùng', false),
-      ActivityManageProductGive(
-          'Huỳnh Anh Vũ', 'Hải Phòng', 'Tiền Mặt', '2,000,000 VND', true),
       ActivityManageProductGive(
           'Huỳnh Anh Vũ', 'Hải Phòng', 'Quần áo', '3 bộ', false),
       ActivityManageProductGive(

@@ -31,7 +31,7 @@ class _HomePage_2State extends State<HomePage_2> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('List people need support'),
+              Text('Danh sách người nhận (tiền)'),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -56,7 +56,7 @@ class _HomePage_2State extends State<HomePage_2> {
           children: <Widget>[
             DrawerHeader(
               child: Text(
-                'Type \n        Of \n           Activity',
+                'Các loại công việc của cộng tác viên',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,
@@ -67,7 +67,7 @@ class _HomePage_2State extends State<HomePage_2> {
               ),
             ),
             ListTile(
-              title: Text('Product Activity ( Buy )'),
+              title: Text('Danh sách cần mua'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -79,7 +79,7 @@ class _HomePage_2State extends State<HomePage_2> {
               },
             ),
             ListTile(
-              title: Text('Product Activity ( Give )'),
+              title: Text('Danh sách người nhận( sản phẩm)'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -91,7 +91,7 @@ class _HomePage_2State extends State<HomePage_2> {
               },
             ),
             ListTile(
-              title: Text('Activity for person'),
+              title: Text('Danh sách người nhận( tiền)'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -135,17 +135,17 @@ class _HomePage_2State extends State<HomePage_2> {
                                 alignment: Alignment.centerLeft,
                                 child: Column(children: [
                                   Text(
-                                    'Name: ' +
+                                    'Tên người nhận: ' +
                                         listActivity.elementAt(index).name,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   Text(
-                                    'Address: ' +
+                                    'Địa chỉ: ' +
                                         listActivity.elementAt(index).address,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   Text(
-                                    'Price: ' +
+                                    'Số tiền: ' +
                                         listActivity.elementAt(index).quantity +
                                         listActivity.elementAt(index).uom,
                                     style: TextStyle(fontSize: 12),
@@ -183,7 +183,7 @@ class _HomePage_2State extends State<HomePage_2> {
                                               Radius.circular(10))),
                                       backgroundColor: Colors.green[200],
                                       title: new Text(
-                                        'Choose image successful',
+                                        'Chọn ảnh thành công',
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 15),
                                       ),
@@ -201,7 +201,7 @@ class _HomePage_2State extends State<HomePage_2> {
                                               Radius.circular(10))),
                                       backgroundColor: Colors.green[200],
                                       title: new Text(
-                                        'Choose image fail',
+                                        'Chọn ảnh thất bại',
                                         style: TextStyle(
                                             color: Colors.white, fontSize: 15),
                                       ),
@@ -280,7 +280,7 @@ class _HomePage_2State extends State<HomePage_2> {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create external activity',
+                'Hoạt động ngoài lề',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
