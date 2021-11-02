@@ -30,7 +30,8 @@ class _HomePageState extends State<HomePage3> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('List product for people'),
+              Text('Danh sách người nhận(sản phẩm)',
+                  style: TextStyle(fontSize: 14)),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -55,18 +56,18 @@ class _HomePageState extends State<HomePage3> {
           children: <Widget>[
             DrawerHeader(
               child: Text(
-                'Type \n        Of \n           Activity',
+                'Các loại công việc của cộng tác viên',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 36,
                 ),
               ),
               decoration: BoxDecoration(
-                color: Colors.blue[100],
+                color: Colors.blue[400],
               ),
             ),
             ListTile(
-              title: Text('Product Activity ( Buy )'),
+              title: Text('Danh sách cần mua'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage3> {
               },
             ),
             ListTile(
-              title: Text('Product Activity ( Give )'),
+              title: Text('Danh sách người nhận( sản phẩm)'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -90,7 +91,7 @@ class _HomePageState extends State<HomePage3> {
               },
             ),
             ListTile(
-              title: Text('Activity for person'),
+              title: Text('Danh sách người nhận( tiền)'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -118,7 +119,7 @@ class _HomePageState extends State<HomePage3> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 60,
+                        height: 70,
                         color: Colors.white,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -137,17 +138,21 @@ class _HomePageState extends State<HomePage3> {
                               child: Column(
                                 children: [
                                   Text(
-                                    'Name: ' +
+                                    'Tên người nhận: ' +
                                         listActivity.elementAt(index).name,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   Text(
-                                    'Address: ' +
+                                    'CMND/CCCD: 331 832 321',
+                                    style: TextStyle(fontSize: 12),
+                                  ),
+                                  Text(
+                                    'Địa chỉ: ' +
                                         listActivity.elementAt(index).address,
                                     style: TextStyle(fontSize: 12),
                                   ),
                                   Text(
-                                    'Product Name: ' +
+                                    'Tên sản phẩm: ' +
                                         listActivity.elementAt(index).product,
                                     style: TextStyle(fontSize: 12),
                                   ),
@@ -163,64 +168,133 @@ class _HomePageState extends State<HomePage3> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
-                        child: RaisedButton(
-                          color: Colors.blue[200],
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(5)),
-                          onPressed: () async {
-                            final pickedFile = await picker.pickImage(
-                                source: ImageSource.camera);
-                            //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-                            setState(() {
-                              if (pickedFile != null) {
-                                k = index;
-                                // i = 0;
-                                image = File(pickedFile.path);
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
-                                      backgroundColor: Colors.green[200],
-                                      title: new Text(
-                                        'Choose image successful',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 15),
-                                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(1, 0, 0, 0),
+                            child: RaisedButton(
+                              color: Colors.blue[200],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(7)),
+                              onPressed: () async {
+                                final pickedFile = await picker.pickImage(
+                                    source: ImageSource.gallery);
+                                //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                                setState(() {
+                                  if (pickedFile != null) {
+                                    k = index;
+                                    // i = 0;
+                                    image = File(pickedFile.path);
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thành công',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                              } else {
-                                // i = 0;
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
-                                      backgroundColor: Colors.green[200],
-                                      title: new Text(
-                                        'Choose image fail',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 15),
-                                      ),
+                                  } else {
+                                    // i = 0;
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thất bại',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                              }
-                            });
-                          },
-                          child: Text(
-                            'Take a picture',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
+                                  }
+                                });
+                              },
+                              child: Text(
+                                'Chọn ảnh',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(1, 0, 0, 0),
+                            child: RaisedButton(
+                              color: Colors.blue[200],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(7)),
+                              onPressed: () async {
+                                final pickedFile = await picker.pickImage(
+                                    source: ImageSource.camera);
+                                //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                                setState(() {
+                                  if (pickedFile != null) {
+                                    k = index;
+                                    // i = 0;
+                                    image = File(pickedFile.path);
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thành công',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    // i = 0;
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thất bại',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  }
+                                });
+                              },
+                              child: Text(
+                                'Chụp ảnh',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -234,39 +308,40 @@ class _HomePageState extends State<HomePage3> {
                       : FlutterLogo(
                           size: 0,
                         ),
-                  index == k && image != null
-                      ? Padding(
-                          padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
-                            decoration: InputDecoration(
-                              labelText: 'Quantity: ',
-                              labelStyle: TextStyle(
-                                color: Colors.blue[300],
-                                fontSize: 20,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      index == k && image != null
+                          ? RaisedButton(
+                              color: Colors.blue[200],
+                              onPressed: () {
+                                showAlertDialog(context);
+                              },
+                              child: Text(
+                                'Hoàn thành',
+                                style: TextStyle(color: Colors.white),
                               ),
+                            )
+                          : FlutterLogo(
+                              size: 0,
                             ),
-                          ),
-                        )
-                      : FlutterLogo(
-                          size: 0,
-                        ),
-                  index == k && image != null
-                      ? RaisedButton(
-                          color: Colors.blue[100],
-                          onPressed: () {
-                            showAlertDialog(context);
-                          },
-                          child: Text(
-                            'Done',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        )
-                      : FlutterLogo(
-                          size: 0,
-                        ),
+                      index == k && image != null
+                          ? RaisedButton(
+                              color: Colors.red[200],
+                              onPressed: () {
+                                showAlertDialog_2(context);
+                              },
+                              child: Text(
+                                'Hoàn tác',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            )
+                          : FlutterLogo(
+                              size: 0,
+                            ),
+                    ],
+                  ),
                 ],
               );
             } else {
@@ -303,7 +378,7 @@ class _HomePageState extends State<HomePage3> {
               alignment: Alignment.center,
               padding: EdgeInsets.symmetric(vertical: 15),
               child: Text(
-                'Create external activity',
+                'Hoạt động ngoài lề',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -317,19 +392,56 @@ class _HomePageState extends State<HomePage3> {
   }
 }
 
-showAlertDialog(BuildContext context) {
+showAlertDialog_2(BuildContext context) {
   // set up the buttons
   Widget cancelButton = FlatButton(
-    child: Text("Cancel"),
+    child: Text("Hủy"),
     onPressed: () {},
   );
   Widget continueButton = FlatButton(
-    child: Text("Continue"),
+    child: Text("Tiếp tục"),
     onPressed: () {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => HomePage_2(),
+        ),
+      );
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Báo cáo"),
+    content: Text("Bạn có muốn tiếp tục hoàn tác công việc"),
+    actions: [
+      cancelButton,
+      continueButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialog(BuildContext context) {
+  // set up the buttons
+  Widget cancelButton = FlatButton(
+    child: Text("Hủy"),
+    onPressed: () {},
+  );
+  Widget continueButton = FlatButton(
+    child: Text("Tiếp tục"),
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage_2(),
         ),
       );
       showDialog(
@@ -340,7 +452,7 @@ showAlertDialog(BuildContext context) {
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             backgroundColor: Colors.green[100],
             title: new Text(
-              'You have done this activity',
+              'Hoàn thành',
               style: TextStyle(color: Colors.white, fontSize: 15),
             ),
           );
@@ -351,8 +463,8 @@ showAlertDialog(BuildContext context) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Report"),
-    content: Text("Do you want to continue doing this activity?"),
+    title: Text("Báo cáo"),
+    content: Text("Bạn có muốn tiếp tục hoàn thành công việc"),
     actions: [
       cancelButton,
       continueButton,

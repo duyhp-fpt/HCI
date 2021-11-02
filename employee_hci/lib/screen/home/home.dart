@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                 'Các loại công việc của cộng tác viên',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 36,
                 ),
               ),
               decoration: BoxDecoration(
@@ -165,64 +165,133 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(1, 0, 0, 10),
-                        child: RaisedButton(
-                          color: Colors.blue[200],
-                          shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(7)),
-                          onPressed: () async {
-                            final pickedFile = await picker.pickImage(
-                                source: ImageSource.camera);
-                            //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
-                            setState(() {
-                              if (pickedFile != null) {
-                                k = index;
-                                // i = 0;
-                                image = File(pickedFile.path);
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
-                                      backgroundColor: Colors.green[200],
-                                      title: new Text(
-                                        'Chọn ảnh thành công',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 15),
-                                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(1, 0, 0, 0),
+                            child: RaisedButton(
+                              color: Colors.blue[200],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(7)),
+                              onPressed: () async {
+                                final pickedFile = await picker.pickImage(
+                                    source: ImageSource.gallery);
+                                //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                                setState(() {
+                                  if (pickedFile != null) {
+                                    k = index;
+                                    // i = 0;
+                                    image = File(pickedFile.path);
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thành công',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                              } else {
-                                // i = 0;
-                                showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10))),
-                                      backgroundColor: Colors.green[200],
-                                      title: new Text(
-                                        'Chọn ảnh thất bại',
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 15),
-                                      ),
+                                  } else {
+                                    // i = 0;
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thất bại',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                              }
-                            });
-                          },
-                          child: Text(
-                            'Thực hiện',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
+                                  }
+                                });
+                              },
+                              child: Text(
+                                'Chọn ảnh',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(1, 0, 0, 0),
+                            child: RaisedButton(
+                              color: Colors.blue[200],
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(7)),
+                              onPressed: () async {
+                                final pickedFile = await picker.pickImage(
+                                    source: ImageSource.camera);
+                                //File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+                                setState(() {
+                                  if (pickedFile != null) {
+                                    k = index;
+                                    // i = 0;
+                                    image = File(pickedFile.path);
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thành công',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  } else {
+                                    // i = 0;
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(10))),
+                                          backgroundColor: Colors.green[200],
+                                          title: new Text(
+                                            'Chọn ảnh thất bại',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 15),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  }
+                                });
+                              },
+                              child: Text(
+                                'Chụp ảnh',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 12),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

@@ -8,6 +8,7 @@ class CreatePage extends StatefulWidget {
 }
 
 class CreatePageState extends State<CreatePage> {
+  String dropdownValue = 'Tiền';
   File? image;
   final picker = ImagePicker();
   @override
@@ -15,10 +16,10 @@ class CreatePageState extends State<CreatePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: new Text('Create Activity'),
+        title: new Text('Tạo hoạt động ngoài lề'),
         backgroundColor: Colors.blue[300],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             child: Column(
@@ -30,7 +31,7 @@ class CreatePageState extends State<CreatePage> {
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Name: ',
+                      labelText: 'Tên người nhận: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 18,
@@ -45,7 +46,7 @@ class CreatePageState extends State<CreatePage> {
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Identity card: ',
+                      labelText: 'CMND/CCCD: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 18,
@@ -60,7 +61,7 @@ class CreatePageState extends State<CreatePage> {
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Date of birth: ',
+                      labelText: 'Ngày sinh: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 18,
@@ -75,7 +76,7 @@ class CreatePageState extends State<CreatePage> {
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Address: ',
+                      labelText: 'Địa chỉ: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 18,
@@ -90,7 +91,7 @@ class CreatePageState extends State<CreatePage> {
                       fontSize: 14,
                     ),
                     decoration: InputDecoration(
-                      labelText: 'Reason: ',
+                      labelText: 'Lý do: ',
                       labelStyle: TextStyle(
                         color: Colors.blue[300],
                         fontSize: 18,
@@ -98,36 +99,87 @@ class CreatePageState extends State<CreatePage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
-                  child: TextField(
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                    decoration: InputDecoration(
-                      labelText: 'Product: ',
-                      labelStyle: TextStyle(
+                Row(
+                  children: [
+                    Text(
+                      'Type: ',
+                      style: TextStyle(
                         color: Colors.blue[300],
-                        fontSize: 18,
+                        fontSize: 20,
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      value: dropdownValue,
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.black),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          dropdownValue = newValue!;
+                        });
+                      },
+                      items: <String>['Tiền', 'Không phải tiền']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ],
+                ),
+                if (dropdownValue == 'Không phải tiền')
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Tên sản phầm: ',
+                        labelStyle: TextStyle(
+                          color: Colors.blue[300],
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
-                  child: TextField(
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                    decoration: InputDecoration(
-                      labelText: 'Price / Quantity: ',
-                      labelStyle: TextStyle(
-                        color: Colors.blue[300],
-                        fontSize: 18,
+                if (dropdownValue == 'Tiền')
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Số tiền: ',
+                        suffix: Text('VND'),
+                        labelStyle: TextStyle(
+                          color: Colors.blue[300],
+                          fontSize: 18,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                if (dropdownValue == 'Không phải tiền')
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(5, 5, 5, 6),
+                    child: TextField(
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Số lượng: ',
+                        labelStyle: TextStyle(
+                          color: Colors.blue[300],
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -135,13 +187,6 @@ class CreatePageState extends State<CreatePage> {
             children: [
               Padding(
                 padding: EdgeInsets.fromLTRB(1, 5, 5, 6),
-              ),
-              Text(
-                'Image: ',
-                style: TextStyle(
-                  color: Colors.blue[300],
-                  fontSize: 20,
-                ),
               ),
               image != null
                   ? Image.file(
@@ -203,13 +248,16 @@ class CreatePageState extends State<CreatePage> {
                     });
                   },
                   child: Text(
-                    'Take a picture',
+                    'Chụp ảnh',
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
             ],
           ),
+          SizedBox(
+            height: 100,
+          )
         ],
       ),
       bottomNavigationBar: SizedBox(
