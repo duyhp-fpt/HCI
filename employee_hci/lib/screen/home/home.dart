@@ -6,6 +6,7 @@ import 'package:employee_hci/screen/home/giveactivity.dart';
 import 'package:employee_hci/screen/home/homepage2.dart';
 import 'package:employee_hci/screen/profile/profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class HomePage extends StatefulWidget {
@@ -309,6 +310,10 @@ class _HomePageState extends State<HomePage> {
                       ? Padding(
                           padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                           child: TextField(
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              WhitelistingTextInputFormatter.digitsOnly
+                            ],
                             style: TextStyle(
                               fontSize: 18,
                             ),
@@ -329,6 +334,10 @@ class _HomePageState extends State<HomePage> {
                       ? Padding(
                           padding: const EdgeInsets.fromLTRB(5, 5, 5, 10),
                           child: TextField(
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              WhitelistingTextInputFormatter.digitsOnly
+                            ],
                             style: TextStyle(
                               fontSize: 18,
                             ),
