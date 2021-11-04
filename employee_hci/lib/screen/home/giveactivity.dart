@@ -136,6 +136,7 @@ class _HomePageState extends State<HomePage3> {
                             Container(
                               alignment: Alignment.centerLeft,
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     'Tên người nhận: ' +
